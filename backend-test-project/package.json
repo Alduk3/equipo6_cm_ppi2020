@@ -8,7 +8,7 @@
     "start": "node index"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jerson Álvarez Ramirez, Juan Pablo Bolívar Marín, Alejandro Duque Florez, Sebastian Gallego Londoño",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
