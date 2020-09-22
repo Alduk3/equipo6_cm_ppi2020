@@ -21,3 +21,8 @@ app.get("/descripcion", (req, res) => {
 app.listen(5057, function () {
   console.log("El servidor está activo en el puerto 5057");
 });
+
+app.get("/sobre_nosotros", (req, res) => {
+  res.send(`<p><a href = "https://www.facebook.com/profile.php?id=100010175615706"> Jerson Álvarez Ramírez </a></p><p><a href = "https://www.facebook.com/juanpablo.bolivarmarin.7"> Juan Pablo Bolívar Marín</a></p>
+   <p><a href = "https://www.facebook.com/alejandro.duqueflorez" > Alejandro Duque Florez </a></p> <p><a href = "https://www.facebook.com/juan.londono.376043"> Sebastián Gallago Londoño</a></p>`);
+});
