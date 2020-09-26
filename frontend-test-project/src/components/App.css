@@ -1,0 +1,13 @@
+.text-azul{
+    color: #303f9f!important;
+  }
+  .text-blanco{
+    color: #f5f5f5!important;
+  }
+  .btn-azul{
+    background:#536dfe!important;
+  }
+  .btn-outline-primary-azul{
+    background: #ffffff!important;
+    border: #536dfe!important;
+  }
