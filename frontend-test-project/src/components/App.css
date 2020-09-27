@@ -1,13 +1,16 @@
 .text-azul{
     color: #303f9f!important;
+    font-weight: 900;
   }
   .text-blanco{
     color: #f5f5f5!important;
+    font-weight: 900;
   }
   .btn-azul{
-    background:#536dfe!important;
+    background:#303f9f!important;
   }
   .btn-outline-primary-azul{
     background: #ffffff!important;
-    border: #536dfe!important;
+    border-style: solid;
+    border-color: #303f9f!important;
   }
