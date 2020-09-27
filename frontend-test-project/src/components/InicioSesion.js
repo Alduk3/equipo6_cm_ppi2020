@@ -1,97 +1,114 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './InicioSesion.css';
-import history from '../services/history';
+import Title from '../components/Title/Title';
+import Input from '../components/Input/Input';
 
-function urlencodeObject(data) {
-    let params = new URLSearchParams();
-    Object.keys(data).forEach(key => params.append(key, data[key]));
-    const encoded = params.toString();
-    // console.log(encoded);
-    return encoded;
-}
-export const handleLogin = async data => {
-    const { email, password } = data; //RETRIEVE
-    const params = { password: password }; //REFORMAT
-    if (email !== false)
-        params.email = email
-    else
-        throw "Email and nickname are not false, bad request..."
-    const headers = new Headers({
-        "Content-Type": "application/x-www-form-urlencoded",
-        'Access-Control-Allow-Origin': "*",
-        "mode": "no-cors"
+const Login = () => {
 
-    });
-    let response = await fetch('https://cors-anywhere.herokuapp.com//signin', {
-        headers: headers,
-        method: "POST",
-        body: urlencodeObject(params)
-    }).catch(error => console.error("Error:", error));
-    return await response.json();
-};
-function InicioSesion() {
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
-    const [email, setEmail] = useState();
-    const [password, setPass] = useState();
-    const [response, setResponse] = useState();
-    useEffect(() => {
-        if (!response) return;
-        console.log(response)
-        if (response.user) {
-            console.log("navegar")
-            history.push('/principal')
-        }
+  function handleChange(name, value) {
+    if (name === 'usuario') {
+      setUser(value);
+      setHasError(false);
+    } else {
+      if (value.length < 5) {
+        setPasswordError(true);
+        setHasError(false);
+      } else {
+        setPasswordError(false);
+        setPassword(value)
+        setHasError(false);
+      }
 
-    }, [response])
-    return (
-        <div className="h-100 my-4">
-            <div className="row">
-                {/* <BootstrapIcons icon={biChevronRight}/> */}
+    }
+  };
 
-                <div className="col-md-10 d-flex flex-wrap align-middle p-4">
-                    <h1 className="align-self-center text-black mx-auto my-2"><span class="Chevron left"></span>Iniciar sesión</h1>
-                    <input type="text" id="username" className="form-control col-md-10 my-4" placeholder="Nombre*" onChange={(e) => setEmail(e.target.value)} />
+  function ifMatch(param) {
+    if (param.user.length > 0 && param.password.length > 0) {
+      if (param.user === 'Juan Pablo' && param.password === '200308') {
+        const { user, password } = param;
+        let ac = { user, password };
+        let account = JSON.stringify(ac);
+        localStorage.setItem('accont', account);
+        setIsLogin(true);
+      } else {
+        setIsLogin(false);
+        setHasError(true);
+      }
+    } else {
+      setIsLogin(false);
+      setHasError(true);
+    }
+  }
 
-                    <input type="text" id="password" className="form-control col-md-10 my-4" placeholder="Contraseña*" onChange={(e) => setPass(e.target.value)} />
+  function handleSubmit() {
+    let account = { user, password }
+    if (account) {
+      ifMatch(account)
+    }
+  }
 
-                    <div>
-                        *Todos los campos son obligatorios
-                    </div>
-
-                    <button className="btn btn-azul text-blanco m-2 btn-lg btn-block rounded-pill" onClick={
-                        async e => {
-                            let emailRegex = new RegExp(
-                                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                            )
-                            const data = { email, password }
-
-
-                            if (emailRegex.exec(email) === null) {
-                                let tempResponse = {}
-                                tempResponse.ok = false
-                                tempResponse.statusText =
-                                    'El correo no tiene un formato correcto'
-                                setResponse(tempResponse)
-                                return
-                            }
-                            const apiResponse = await handleLogin(data)
-                            if (!apiResponse) {
-                                alert('Error de autentificación', 'Algo ha salido mal...')
-                            } else {
-                                setResponse(apiResponse) // IT APPEARS TO BE THAT THIS IS OBSERVABLE, SO I GOT TO USE A UPDATE EFFECT IN A FAR AWAY F.. FUNCTION
-                            }
-
-
-                        }
-                    }>Iniciar sesión</button>
-                    <div ><a>¿Olvidaste tu contraseña?</a></div>
-                    <div>
-                        ¿No tienes cuenta? <a href="#">Regístrate</a>
-</div>
-                </div>
-            </div>
+  return (
+    <div className='login-container text-primary' >
+      { isLogin ?
+        <div className='home-container'>
+          <h1>Bienvenido {user}!</h1>
+          <label> Usuario y contraseña validos </label>
         </div>
-    );
-}
+        :
+        <div className='login-conten'>
+          <Title text='Iniciar sesión' />
+          <br />
+          <br />
+          {hasError &&
+            <label className='label-alert'>Su contraseña o usuario estan mal, o no existen.</label>
+          }
+          <Input
+            attribute={{
+              id: 'usuario',
+              name: 'usuario',
+              type: 'text',
+              placeholder: 'Nombre*'
+            }}
+            handleChange={handleChange}
+          />
+          <Input
+            attribute={{
+              id: 'contraseña',
+              name: 'contraseña',
+              type: 'password',
+              placeholder: 'Contraseña*'
+            }}
+            handleChange={handleChange}
+            param={passwordError}
+          />
+          {passwordError &&
+            <label className='label-error'>
+              Contraseña invalida o incorrecta
+           </label>
+          }
 
-export default InicioSesion;
+          <div className="text-black">
+            *Todos los campos son obligatorios
+             </div>
+          <div className='submit-button-container'>
+            <button onClick={handleSubmit} className='submit-button'>
+              Iniciar sesión
+           </button>
+          </div>
+          <div className='text-white'><a>¿Olvidaste tu contraseña?</a></div>
+          <div className='text-white'>
+            ¿No tienes cuenta? <a className='text-white' href="#">Regístrate</a>
+          </div>
+        </div>
+      }
+    </div>
+  )
+};
+
+export default Login;
