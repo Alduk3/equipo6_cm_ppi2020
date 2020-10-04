@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './InicioSesion.css';
+import './styles/InicioSesion.css';
 import Title from '../components/Title/Title';
 import Input from '../components/Input/Input';
 

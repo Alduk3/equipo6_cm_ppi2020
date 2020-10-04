@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
 import logoTenderNote from '../images/TenderNote.jpg'
 import { Link } from "react-router-dom";
 
