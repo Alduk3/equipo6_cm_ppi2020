@@ -1,22 +1,30 @@
-import React from 'react';
+import React from 'react'
 import RegistroLogo from '../images/RegistroLogo.png'
+import './styles/Registro.css'
+import { Link } from "react-router-dom";
+
 function Registro() {
     return (
-        <div class="h-100 my-4">
-            <div class="row mt-4">
-                <h1 class="align-self-center mx-auto my-2">¡Regístrate para continuar!</h1>
-                <div class="col-md-6 mx-auto d-flex justify-content-center mt-4">
+        <div className="col-fluid fondo row-fluid">
+            <div className="row-auto">
+                <div className="d-flex align-items-center">
+                <h1 className="p-3 align-self-center mx-auto letra-titulo text-justify text-center">Regístrate para continuar!</h1>
+                </div>
+                <div className="mx-auto d-flex justify-content-center mt-3">
                     <img src={RegistroLogo} alt="" srcset="" class="img-fluid w-50"/>
                 </div>
             </div>
-            <div class="row">
+            <div class="col mx-auto">
                 <div class="col-md-10 d-flex flex-wrap align-middle p-4">
-                    <input type="text" id="full_name" class="form-control" placeholder="Nombre*" />
-                    <input type="text" id="job" class="form-control" placeholder="Correo*" />
-                    <input type="text" id="celphone" class="form-control" placeholder="Contraseña*" />
-
-                    <button class="btn btn-azul text-blanco align-self-end btn-md ml-auto my-4">Regístrate</button>
+                    <input type="text" id="full_name" className="form-control btn-border mb-3 btn-lg font-weight-bold" placeholder="Nombre*" />
+                    <input type="text" id="job" className="form-control btn-border mb-3 btn-lg font-weight-bold" placeholder="Correo*" />
+                    <input type="text" id="celphone" className="form-control btn-border btn-lg font-weight-bold" placeholder="Contraseña*" />
+                    <p className="mt-2 font-weight-bold">*Todos los campos son obligatorios</p>
+                    <button className="btn btn-azul m-3 mt-5 btn-lg btn-block btn-border letra-titulo font-weight-bold">Regístrate</button>
                 </div>
+            </div>
+            <div className="text-center">
+                <Link to="/login" class="text-white a-css">¿Ya tienes una cuenta?</Link>
             </div>
         </div>
     );

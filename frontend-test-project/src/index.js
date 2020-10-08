@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Routes from './components/Routes';
+import 'bootstrap/dist/css/bootstrap.css'
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import App from './components/App';
 import history from './services/history.js';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history} >
-      <Routes/>
+      <App/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
