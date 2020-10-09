@@ -1,0 +1,12 @@
+.fondo {
+    background:#303f9f;
+}
+
+.tamano-img{
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.text-blanco{
+    color: #f5f5f5!important;
+}
