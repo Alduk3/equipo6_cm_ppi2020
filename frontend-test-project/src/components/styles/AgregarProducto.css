@@ -1,0 +1,14 @@
+.fondo{
+    background:#303f9f;
+}
+.fondo-p{
+background-image: url("../FondoT.jpeg");
+}
+.letra{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: white;
+}
+.letra-b{
+    color: black;
+}
