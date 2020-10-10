@@ -1,26 +1,26 @@
 import React from 'react'
-import './styles/navBottom.css'
+import './styles/Inventario.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
 import lista from '../images/lista.png'
-import usuario from '../images/usuario.png'
+import agregar from '../images/agregar.png'
 import { Link } from 'react-router-dom'
 
-class Hogar extends React.Component {
+class Inventario extends React.Component {
     render(){
         return (
             <div className="col-fluid">
                 <div className="fondo col row-fluid">
-                    <div className="d-inline justify-content-start">
-                        <h1 className="text-blanco d-inline">
-                            TenderNote
+                    <div className="text-center mb-3">
+                        <h1 className="text-blanco">
+                            Inventario
                         </h1>
                     </div>
-                    <div className="d-inline ml-5 pb-3 justify-content-end align-items-start">
-                        <Link>
-                            <img src={usuario} className="tamano-img d-inline mb-3" />
-                        </Link>
-                    </div>
+                </div>
+                <div>
+                    <Link>
+                        <img src={agregar} className="img-fluid tamano-img-agregar" />
+                    </Link>
                 </div>
                 <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom">
                     <div className="d-inline-block p-2 px-4">
@@ -44,4 +44,4 @@ class Hogar extends React.Component {
     }
 }
 
-export default Hogar;
+export default Inventario
