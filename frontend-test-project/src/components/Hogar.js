@@ -16,9 +16,9 @@ class Hogar extends React.Component {
                             TenderNote
                         </h1>
                     </div>
-                    <div className="d-inline ml-5 pb-3 justify-content-end align-items-start">
-                        <Link>
-                            <img src={usuario} className="tamano-img d-inline mb-3" />
+                    <div className="d-inline ml-5 pl-4 justify-content-end">
+                        <Link to="/cuenta">
+                            <img src={usuario} className="tamano-img d-inline pb-2 user-img" />
                         </Link>
                     </div>
                 </div>

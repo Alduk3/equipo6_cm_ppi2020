@@ -19,19 +19,19 @@ class Ajustes extends React.Component {
                 <div className="col d-flex align-items-center mt-5">
                     <div className="col-fluid d-block justify-content-center pl-3">
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones">
-                            <Link to="/login" className="font-weight-bold text-black pl-2">Mi cuenta</Link>
+                            <Link to="/cuenta" className="font-weight-bold text-black pl-2">Mi cuenta</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones">
-                            <Link to="/register" className="font-weight-bold text-black pl-2">Notificaciones</Link>
+                            <Link to="" className="font-weight-bold text-black pl-2">Notificaciones</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones">
-                            <Link to="/login" className="font-weight-bold text-black pl-2">Sobre nosotros</Link>
+                            <Link to="" className="font-weight-bold text-black pl-2">Sobre nosotros</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones">
-                            <Link to="/register" className="font-weight-bold text-black pl-2">Política y privacidad</Link>
+                            <Link to="" className="font-weight-bold text-black pl-2">Política y privacidad</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones">
-                            <Link to="/register" className="font-weight-bold text-black pl-2">Cerrar sesión</Link>
+                            <Link to="/" className="font-weight-bold text-black pl-2">Cerrar sesión</Link>
                         </button>
                     </div>
                 </div>
