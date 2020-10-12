@@ -1,0 +1,12 @@
+.text-black{
+    color:black;
+}
+
+.botones {
+    width: 135%;
+    height: 50px;
+}
+
+.fondo-p{
+    background-image: url("../FondoT.jpeg");
+    }

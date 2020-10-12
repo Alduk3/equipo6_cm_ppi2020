@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/navBottom.css'
+import './styles/Hogar.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
 import lista from '../images/lista.png'
@@ -34,7 +34,7 @@ class Hogar extends React.Component {
                         </Link>
                     </div>
                     <div className="d-inline-block p-2 px-4">
-                        <Link>
+                        <Link to="/ajustes">
                         <img src={ajuste} className="img-fluid tamano-img mx-auto" />
                         </Link>
                     </div>

@@ -15,3 +15,7 @@
     max-width: 55px;
     max-height: 55px;
 }
+
+.fondo-p{
+    background-image: url("../FondoT.jpeg");
+}
