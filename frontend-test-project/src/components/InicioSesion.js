@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './styles/InicioSesion.css';
 import Title from '../components/Title';
 import Input from '../components/Input';
+import {Link} from 'react-router-dom';
 
 const Login = () => {
 
@@ -103,8 +104,8 @@ const Login = () => {
           </div>
           <div className='text-white'><a>¿Olvidaste tu contraseña?</a></div>
           <div className='text-white'>
-            ¿No tienes cuenta? <a className='text-white' href="#">Regístrate</a>
-          </div>
+            ¿No tienes cuenta?<Link to='/register'> <a className='text-white' href="#">Regístrate</a>
+          </Link></div>
         </div>
       }
     </div>

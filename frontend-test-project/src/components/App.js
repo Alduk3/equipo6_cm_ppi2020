@@ -5,6 +5,7 @@ import Inicio from './Inicio';
 import React from 'react';
 import Hogar from './Hogar'
 import NuevoProducto from './AgregarProducto'
+import EditarCuenta from './Cuenta'
 function App(){
 
     return(
@@ -15,6 +16,7 @@ function App(){
                 <Route path="/register"  component={Register}/>
                 <Route path="/hogar" component={Hogar} />
                 <Route path="/nuevoproducto" component={NuevoProducto}/>
+                <Route path="/cuenta" component={EditarCuenta}/>
                 <Route component={Inicio} />
             </Switch>
         </Router>
