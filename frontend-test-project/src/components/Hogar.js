@@ -17,7 +17,7 @@ class Hogar extends React.Component {
                         </h1>
                     </div>
                     <div className="d-inline ml-5 pl-4 justify-content-end">
-                        <Link to="/cuenta">
+                        <Link to="/editarcuenta">
                             <img src={usuario} className="tamano-img d-inline pb-2 user-img" />
                         </Link>
                     </div>
