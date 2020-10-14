@@ -56,12 +56,11 @@ const Login = () => {
 
   return (
     <div className='login-container text-primary' >
-      { isLogin ?
+      
         <div className='home-container'>
-          <h1>Bienvenido {user}!</h1>
-          <label> Usuario y contraseña validos </label>
+         
         </div>
-        :
+        
         <div className='login-conten'>
           <Title text='Iniciar sesión' />
           <br />
@@ -97,17 +96,20 @@ const Login = () => {
           <div className="text-black">
             *Todos los campos son obligatorios
              </div>
+             
           <div className='submit-button-container'>
             <button onClick={handleSubmit} className='submit-button'>
-              Iniciar sesión
+              
+              <Link to='/hogar'><a className='submit-button' href="#" > Iniciar sesión </a></Link>
            </button>
           </div>
+          
           <div className='text-white'><a>¿Olvidaste tu contraseña?</a></div>
           <div className='text-white'>
             ¿No tienes cuenta?<Link to='/register'> <a className='text-white' href="#">Regístrate</a>
           </Link></div>
         </div>
-      }
+      
     </div>
   )
 };
