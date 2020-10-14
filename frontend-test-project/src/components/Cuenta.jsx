@@ -11,9 +11,9 @@ function cuenta() {
         <div className='fond'>
           <title>Cuenta</title>
           <header className='parteA'>
-            <Link to="/hogar"><a href><img src={FlechaA} alt="" /></a></Link>
+            <Link to="/editarcuenta"><a href><img src={FlechaA} alt="" /></a></Link>
             <h1>Editar Cuenta</h1>
-            <Link to="/hogar"><a href><img src={Chulo} alt="" /></a></Link> 
+            <Link to="/editarcuenta"><a href><img src={Chulo} alt="" /></a></Link> 
           </header>
           <div className="container">
             <div className="img-perfil">

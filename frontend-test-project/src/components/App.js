@@ -6,9 +6,10 @@ import React from 'react';
 import Hogar from './Hogar'
 import Inventario from './Inventario'
 import Ajustes from './Ajustes'
-
 import NuevoProducto from './AgregarProducto'
-import EditarCuenta from './Cuenta'
+import Cuenta from './Cuenta'
+import MiCuenta from './EditarCuenta'
+
 function App(){
 
     return(
@@ -21,7 +22,8 @@ function App(){
                 <Route path="/inventario" component={Inventario} />
                 <Route path="/nuevoproducto" component={NuevoProducto}/>
                 <Route path="/ajustes" component={Ajustes}/>
-                <Route path="/cuenta" component={EditarCuenta}/>
+                <Route path="/cuenta" component={Cuenta}/>
+                <Route path="/editarcuenta" component={MiCuenta}/>
                 <Route component={Inicio} />
             </Switch>
         </Router>
