@@ -68,7 +68,9 @@ const Login = () => {
 
           {hasError &&
             <div class="alert alert-success"> Su contraseña o usuario son incorrectos</div>
+            
           }
+          <div clas = "alert alert-danger"> </div>
           <Input
             attribute={{
               id: 'usuario',
