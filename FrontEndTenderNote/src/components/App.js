@@ -9,6 +9,7 @@ import Ajustes from './Ajustes'
 import NuevoProducto from './AgregarProducto'
 import Cuenta from './Cuenta'
 import MiCuenta from './EditarCuenta'
+import EditarProducto from './EditarProducto'
 
 function App(){
 
@@ -24,6 +25,7 @@ function App(){
                 <Route path="/ajustes" component={Ajustes}/>
                 <Route path="/cuenta" component={Cuenta}/>
                 <Route path="/editarcuenta" component={MiCuenta}/>
+                <Route path="/editarproducto" component={EditarProducto}/>
                 <Route component={Inicio} />
             </Switch>
         </Router>
