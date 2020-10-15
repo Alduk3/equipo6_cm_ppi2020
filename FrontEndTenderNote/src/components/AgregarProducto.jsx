@@ -23,26 +23,22 @@ function AgregarProducto() {
             <div className="row-auto">
                 <div className="row">
                     <div className="col-xs-4">
-                        <input type="text" class="form-control input-lg input-position" placeholder="Nombre*" />
+                        <input type="text" class="form-control input-lg input-position" placeholder="Nombre*"  required />
                     </div>
                     </div>
                 </div>
 
-                <div>
-                    <small className="text to-cori" id= "passwordHelpBlock" class="form-text text-muted">
-                        *Todos los campos son obligatorios
-                    </small>
-                    </div>
+                
 
                 <div class="d-flex form-group">
                     <label class="col-sm-2 col-form-label">Cantidad</label>
-                    <input class="input-border" type="text" placeholder="" />
+                    <input class="input-border" type="text" placeholder=""  required />
                 </div>
                 <div className="d-flex form-group">
                     <label class="col-sm-2 col-form-label">Precio</label>
-                    <input class="input-border" type="text" placeholder="$"/>
+                    <input class="input-border" type="text" placeholder="$"  required/>
                 </div>
-                <textarea class="input-dimesiones" rows="3" placeholder="Descripción"></textarea>
+                <textarea class="input-dimesiones" rows="3" placeholder="Descripción"  required></textarea>
             </div>
         
     )

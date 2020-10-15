@@ -62,11 +62,12 @@ const Login = () => {
         </div>
         
         <div className='login-conten'>
-          <Title text='Iniciar sesión' />
+          <h1>Iniciar sesión</h1>
           <br />
           <br />
+
           {hasError &&
-            <label className='label-alert'>Su contraseña o usuario estan mal, o no existen.</label>
+            <div class="alert alert-success"> Su contraseña o usuario son incorrectos</div>
           }
           <Input
             attribute={{
@@ -88,9 +89,7 @@ const Login = () => {
             param={passwordError}
           />
           {passwordError &&
-            <label className='label-error'>
-              Contraseña invalida o incorrecta
-           </label>
+            <div class="alert alert-success">contraseña invalida</div>
           }
 
           <div className="text-black">
