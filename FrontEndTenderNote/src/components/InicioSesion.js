@@ -62,7 +62,7 @@ const Login = () => {
         </div>
         
         <div className='login-conten'>
-          <h1>Iniciar sesión</h1>
+          <h1 className="inicio-sesion">Iniciar sesión</h1>
           <br />
           <br />
 
