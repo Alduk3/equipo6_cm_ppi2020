@@ -9,6 +9,16 @@
   .btn-azul{
     background:#536dfe!important;
   }
+  .blanco-fondo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 58vh;
+    background-color: white;
+  }
   .btn-outline-primary-azul{
     background: #ffffff!important;
     border-style: solid;
