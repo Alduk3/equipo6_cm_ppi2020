@@ -45,7 +45,7 @@ class Inventario extends React.Component {
                 <br/>
                 <br/>
                 <div className="float-right mb-4 mr-3 margen pb-5">
-                    <Link>
+                    <Link to="/nuevoproducto">
                         <img src={agregar} className="img-fluid tamano-img-agregar" />
                     </Link>
                 </div>
