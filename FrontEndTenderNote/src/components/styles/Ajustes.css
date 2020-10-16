@@ -10,3 +10,7 @@
 body{
     background-image: url("../FondoT.jpeg");
 }
+
+.color-blanquito {
+    background-color: white;
+}
