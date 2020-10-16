@@ -20,7 +20,8 @@ function Registro() {
                 <div class="col-md-10 d-flex flex-wrap align-middle p-4">
                     <input type="text" id="full_name" className="form-control btn-border mb-3 btn-lg font-weight-bold" placeholder="Nombre*" />
                     <input type="text" id="job" className="form-control btn-border mb-3 btn-lg font-weight-bold" placeholder="Correo*" />
-                    <input type="text" id="celphone" className="form-control btn-border btn-lg font-weight-bold" placeholder="Contraseña*" />
+                    <input type="text" id="celphone" className="form-control btn-border mb-3 btn-lg font-weight-bold" placeholder="Contraseña*" />
+                    <input type="text" id="celphone" className="form-control btn-border btn-lg font-weight-bold" placeholder="Confirmar contraseña*" />
                     <p className="mt-2 font-weight-bold">*Todos los campos son obligatorios</p>
                 </div>
                 <div className="col-fluid registro-boton mx-auto">
