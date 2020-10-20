@@ -1,0 +1,20 @@
+[
+  {
+  "id" : 1,
+  "nombre" : "Paco",
+  "apellidos" : "Gonzales Higuita",
+  "correo" : "pacohiguita@gmail.com"
+},
+{
+  "id" : 2,
+  "nombre" : "Juan",
+  "apellidos" : "Suarez Perez",
+  "correo" : "juansuarez@gmail.com"
+},
+{
+  "id" : 3,
+  "nombre" : "Pepe",
+  "apellidos" : "Higuita Izquierdo",
+  "correo" : "pepeizquierdo@gmail.com"
+}
+]
