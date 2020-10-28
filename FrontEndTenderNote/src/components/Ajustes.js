@@ -22,13 +22,13 @@ class Ajustes extends React.Component {
                             <Link to="/editarcuenta" className="font-weight-bold text-black pl-2">Mi cuenta</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones btn-light color-blanquito">
-                            <Link to="" className="font-weight-bold text-black pl-2">Notificaciones</Link>
+                            <Link to="#" className="font-weight-bold text-black pl-2">Notificaciones</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones btn-light color-blanquito">
-                            <Link to="" className="font-weight-bold text-black pl-2">Sobre nosotros</Link>
+                            <Link to="#" className="font-weight-bold text-black pl-2">Sobre nosotros</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones btn-light color-blanquito">
-                            <Link to="" className="font-weight-bold text-black pl-2">Política y privacidad</Link>
+                            <Link to="#" className="font-weight-bold text-black pl-2">Política y privacidad</Link>
                         </button>
                         <button className="btn btn-lg mt-3 btn-block btn-border border border-dark text-left botones btn-light color-blanquito">
                             <Link to="/" className="font-weight-bold text-black pl-2">Cerrar sesión</Link>

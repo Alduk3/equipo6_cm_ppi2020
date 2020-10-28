@@ -107,7 +107,7 @@ const Login = () => {
           
           <div className='text-white'><a>¿Olvidaste tu contraseña?</a></div>
           <div className='text-white'>
-            ¿No tienes cuenta?<Link to='/register'> <a className='text-white' href="#">Regístrate</a>
+            ¿No tienes cuenta?<Link to='/CrearCuenta'> <a className='text-white' href="#">Regístrate</a>
           </Link></div>
         </div>
       

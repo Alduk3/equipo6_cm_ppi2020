@@ -15,7 +15,7 @@ function Inicio() {
             <Link to="/login" className="text-blanco">Iniciar sesión</Link>
           </button>
           <button className="btn btn-outline-primary-azul m-3 mt-5 btn-lg btn-block btn-border">
-            <Link to="/register" className="text-azul">Crear una cuenta</Link>
+            <Link to="/CrearCuenta" className="text-azul">Crear una cuenta</Link>
           </button>
         </div>
       </div>

@@ -10,6 +10,7 @@ import NuevoProducto from './AgregarProducto'
 import Cuenta from './Cuenta'
 import MiCuenta from './EditarCuenta'
 import EditarProducto from './EditarProducto'
+import CrearCuenta from "./CrearCuenta";
 
 function App(){
 
@@ -19,6 +20,7 @@ function App(){
                 <Route path="/" exact component={Inicio}/>
                 <Route path="/login"  component={Login}/>
                 <Route path="/register"  component={Register}/>
+                <Route path="/CrearCuenta"  component={CrearCuenta}/>
                 <Route path="/hogar" component={Hogar} />
                 <Route path="/inventario" component={Inventario} />
                 <Route path="/nuevoproducto" component={NuevoProducto}/>
