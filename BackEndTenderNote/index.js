@@ -8,6 +8,7 @@ app.use(express.json())
 
 app.use("/api/", require ("./routes/tendero"))
 app.use("/api/", require ("./routes/usuario"))
+app.use("/api/", require ("./routes/producto"))
 
 app.get("/",(req,res)=>{
 res.send("API CRUD")

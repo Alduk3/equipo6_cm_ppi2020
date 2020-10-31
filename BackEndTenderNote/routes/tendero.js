@@ -13,7 +13,7 @@ const loadFile = (req) => {
 
 
 router.get("/", (req, res) => {
-  res.send("API REST PREFERENCIA TENDERO");
+  res.send("API REST TENDERO");
 });
 
 router.get("/tendero", (req, res) => {
@@ -78,12 +78,12 @@ router.put("/tendero/:id", (req, res) => {
 router.delete("/tendero/:id", (req, res) => {
   let id = req.params.id
   loadFile(req)
-  let indexUsuario = JSONTendero.findIndex
+  let indiceUsuario = JSONTendero.findIndex
     (usuario => usuario.id == id)
-  if (indexUsuario != -1) {
-    JSONTendero.splice(indexUsuario, 1)
+  if (indiceUsuario != -1) {
+    JSONTendero.splice(indiceUsuario, 1)
     fs.writeFileSync('./tendero.json', JSON.stringify(JSONTendero), 'utf-8')
-    res.status(200).json(indexUsuario + 1)
+    res.status(200).json(indiceUsuario + 1)
   } else {
     res.status(200).json(`El tendero no existe`)
   }
