@@ -12,6 +12,8 @@ import MiCuenta from './EditarCuenta'
 import EditarProducto from './EditarProducto'
 import CrearCuenta from "./CrearCuenta";
 
+import Inventariok from './borrarl'
+
 function App(){
 
     return(
@@ -28,6 +30,7 @@ function App(){
                 <Route path="/cuenta" component={Cuenta}/>
                 <Route path="/editarcuenta" component={MiCuenta}/>
                 <Route path="/editarproducto" component={EditarProducto}/>
+                <Route path="/Inventariok" component={Inventariok}/>
                 <Route component={Inicio} />
             </Switch>
         </Router>

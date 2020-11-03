@@ -3,13 +3,14 @@ import './styles/Inventario.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
 import lista from '../images/lista.png'
+import borrar11 from '../images/borrar11.png'
 import borrar1 from '../images/borrar1.png'
 import borrar2 from '../images/borrar2.png'
 import borrar3 from '../images/borrar3.png'
 import agregar from '../images/agregar.png'
 import { Link } from 'react-router-dom'
 
-class Inventario extends React.Component {
+class Inventariok extends React.Component {
     render(){
         return (
             <div className="col-fluid">
@@ -27,24 +28,18 @@ class Inventario extends React.Component {
 
                 <div className="text-center pt-2">
                     <div className="d-inline-block px-3 py-3">
-                      <Link to="/Inventariok">
-                        <img src={borrar1} className="border rounded shadow"/>
+                      <Link to="/editarproducto">
+                        <img src={borrar11} className="border rounded shadow"/>
                       </Link>
                     </div>
                     <div className="d-inline-block px-3 py-3">
-                      <Link to="/Inventariok">
                         <img src={borrar2} className="border rounded shadow"/>
-                      </Link>
                     </div>
                     <div className="d-inline-block px-3 py-4">
-                      <Link to="/Inventariok">
                         <img src={borrar3} className="border rounded shadow"/>
-                      </Link>
                     </div>
                     <div className="d-inline-block px-3 py-4">
-                      <Link to="/Inventariok">
                         <img src={borrar1} className="border rounded shadow"/>
-                      </Link>
                     </div>
                 </div>
                 
@@ -52,7 +47,7 @@ class Inventario extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <div className="float-right mb-4 mr-3 margen pb-5 ">
+                <div className="float-right mb-4 mr-3 margen pb-5">
                     <Link to="/nuevoproducto">
                         <img src={agregar} className="img-fluid tamano-img-agregar" />
                     </Link>
@@ -79,4 +74,4 @@ class Inventario extends React.Component {
     }
 }
 
-export default Inventario
+export default Inventariok
