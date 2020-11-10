@@ -1,0 +1,10 @@
+[
+  {
+    "id_stock": "1",
+    "cantidad": "2"
+  },
+  {
+    "id_stock" : "2",
+    "cantidad" : "5"
+  }
+]

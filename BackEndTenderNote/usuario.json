@@ -1,29 +1,30 @@
 [
   {
-    "id": "1",
+    "id_usuario": "1",
     "nombre": "Juan Pablo",
     "apellidos": "Bolivar",
     "correo": "juangonzales@gmail.com"
   },
   {
-    "id": "2",
+    "id_usuario": "2",
     "nombre": "Jerson",
     "apellidos": "Alvarez Ramierez",
     "correo": "luisahiguita@gmail.com"
   },
   {
-    "id": "3",
+    "id_usuario": "3",
     "nombre": "Sebastian",
     "apellidos": "Gallego Londoño",
     "correo": "juansuarez@gmail.com"
   },
   {
+    "id_usuario": "4",
     "nombre": "tendero",
     "apellidos": "lorem",
     "correo": "tenderlorem@gmail.com"
   },
   {
-    "id": 5,
+    "id_usuario": 5,
     "nombre": "tendero",
     "apellidos": "lorem",
     "correo": "tenderlorem@gmail.com"

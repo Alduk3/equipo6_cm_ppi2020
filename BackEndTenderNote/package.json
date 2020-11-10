@@ -13,10 +13,7 @@
     "dependencies": {
         "express": "^4.17.1",
         "morgan": "^1.10.0",
-<<<<<<< HEAD
-=======
         "mysql": "^2.18.1",
->>>>>>> 41930877d5dba80c7a8128f79c8f266e0b8074ed
         "nodemon": "^2.0.4"
     }
 }

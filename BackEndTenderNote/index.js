@@ -3,12 +3,16 @@ const path = require("path")
 const morgan = require("morgan") 
 const app = express()
 
+
+//Middelwares
 app.use(morgan("dev"))
 app.use(express.json())
 
-app.use("/api/", require ("./routes/tendero"))
-app.use("/api/", require ("./routes/usuario"))
+//Routes
 app.use("/api/", require ("./routes/producto"))
+app.use("/api/", require ("./routes/usuario"))
+app.use("/api/", require ("./routes/ventas"))
+app.use("/api/", require ("./routes/almacenamiento"))
 
 app.get("/",(req,res)=>{
 res.send("API CRUD")

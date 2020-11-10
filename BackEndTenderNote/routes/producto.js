@@ -31,9 +31,9 @@ router.get("/", (req, res) => {
     } = req.body
   
     let nuevoProducto = {
-        "id": id,
+        "id_producto": id,
         "imagenProducto": imagenProducto,
-        "nombreProducto":nombreProducto,
+        "nombre":nombreProducto,
         "precio": precio,
         "cantidad": cantidad,
         "descripcion": descripcion
@@ -58,12 +58,12 @@ router.get("/", (req, res) => {
   
   router.put("/producto/:id", (req, res) => {
     let id = req.params.id
-    let { imagenProducto ,nombreProducto, precio , cantidad ,descripcion } = req.body
+    let { imagenProducto ,nombre, precio , cantidad ,descripcion } = req.body
     loadFile(req)
     let productoModificado = JSONProducto.find(producto => {
       if (producto.id == id) {
         producto.imagenProducto = imagenProducto
-        producto.nombreProducto = nombreProducto
+        producto.nombre = nombre
         producto.precio = precio
         producto.cantidad = cantidad
         producto.descripcion = descripcion

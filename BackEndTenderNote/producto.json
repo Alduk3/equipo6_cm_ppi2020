@@ -1,16 +1,16 @@
 [
     {
-        "id": "1",
+        "id_producto": "1",
         "imagenProducto": "chocolisto.jpeg",
-        "nombreProducto": "Chocolisto",
+        "nombre": "Chocolisto",
         "precio": "$10000",
         "cantidad": "7",
         "descripcion": "Es proveeída por alpina, se sulteen los días lunes, martes y jueves."
     },
     {
-        "id": "2",
+        "id_producto": "2",
         "imagenProducto": "detodito.jpeg",
-        "nombreProducto": "Detodito",
+        "nombre": "Detodito",
         "precio": "$1800",
         "cantidad": "4",
         "descripcion": "Es proveeída por colanta, se sulteen los días lunes, martes y jueves."
