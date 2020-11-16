@@ -1,7 +1,7 @@
-const {Router} = require('express')
+/*const {Router} = require('express')
 const router = Router()
 const {connection} = require('./../db/mysql')
-connection.connect()
+//connection.connect()
 
 router.get('/almacenamiento', (req, res) => {
   try{
@@ -60,9 +60,57 @@ router.put('/almacenamiento/:id', (req, res) => {
   }
 })
 
-router.post('/almacenamiento', (req, res) => {})
+router.post('/almacenamiento', (req, res) => {
+  try{
+    const {
+      id_ingreso,
+      id_salidas
+    } = req.body
+    const SQL  = `INSERT INTO almacenamiento (id_ingreso,
+      id_salidas)
+      VALUES(?, ?) `
+  const parametros = [id_ingreso, id_salidas]
+  connection.query(SQL, parametros, (error, results, fields)=>{
+    if(error){
+      res.status(502).json({mensaje: 'error ejecutando la consola'})
+    }else{
+      console.log(results)
+        res.status(201).json({id : results.insertId,
+                              id_ingreso : id_ingreso,
+                              id_salidas:id_salidas})
+      /*res.status(201).json({mensaje : "IE creada exitosamente"})*/
+    //}/*
+  /*})
+  }catch(error){
+    res.status(502).json({mensaje: "error en el servidor"})
+  }*/
+/*})
 
-router.delete('/almacenamiento/:id', (req, res) => {})
+router.delete('/almacenamiento/:id', (req, res) => {
+   try{
+    const {id} = req.params
+    const SQL = `DELETE FROM almacenamiento WHERE id_ventas = ?`
+    connection.query(SQL, [id], (error, results, fields) => {
+      if(error){
+        res.status(502).json({mensaje : 'Error ejecutando la consulta'})
+      }else{
+        console.log(results)
+        if(results.affectedRows > 0)
+          res.json({mensaje : "Registro eliminado"})
+        else
+          res.json({mensaje : "El registro no existe"})
+      }
+    })
+  }catch(error){
+    res.status(502).json({mensaje:"Error en el servidor"})
+  }
+})
 
 
-module.exports = router
+//module.exports = router
+
+
+
+
+
+/*Actores de la tabla de oscar:
