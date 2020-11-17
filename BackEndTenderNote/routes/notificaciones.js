@@ -15,7 +15,7 @@ res.status(502).json({mensaje:"La bd offline"})
 }
 })
 
-router.get("/notificaciones/:Id", (req, res) => {
+/*router.get("/notificaciones/:Id", (req, res) => {
   try {
     const Id_notificaciones = req.params.Id
     connection.query(`SELECT * 
@@ -24,6 +24,17 @@ router.get("/notificaciones/:Id", (req, res) => {
   } catch (error) {
     res.status(503).json({ mensaje: "Error en el servidor.", error: true })
   }
+});*/
+
+router.get('/notificaciones/:id',(req,res)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM notificaciones WHERE id_notificaciones = ?`, [id],(err, rows, fields)=>{
+    if(!err){
+      res.json(rows[0])
+    }else{
+      console.log(err)
+    }
+  });
 });
 
 router.post('/notificaciones', (req, res) => {
@@ -31,8 +42,7 @@ router.post('/notificaciones', (req, res) => {
     const {
       descripcion
     } = req.body
-    const SQL = `INSERT INTO notificaciones (descripcion) 
-                       VALUES(?,?)`
+    const SQL = `INSERT INTO notificaciones (descripcion) VALUES(?)`
     const parametros = [descripcion]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
@@ -42,7 +52,7 @@ router.post('/notificaciones', (req, res) => {
         console.log(results)
         res.status(201).json({
           id_notificaciones: results.insertId,
-          descripcion,
+          descripcion: descripcion,
        
         })
       }
