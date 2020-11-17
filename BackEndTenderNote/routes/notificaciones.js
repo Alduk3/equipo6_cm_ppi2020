@@ -1,8 +1,8 @@
 const {Router} = require ('express');
 const router = Router();
-const {connection} = require('./../db/mysql');
+const {connection} = require('./../db/mysql_pool');
 
-/*router.get('/notificaciones', (req,res) => {
+router.get('/notificaciones', (req,res) => {
 try{
 connection.query('SELECT * FROM `notificaciones`',(err, row, fields)=>{
   if(err){
@@ -13,29 +13,43 @@ connection.query('SELECT * FROM `notificaciones`',(err, row, fields)=>{
 }catch(error){
 res.status(502).json({mensaje:"La bd offline"})
 }
-})*/
+})
 
-router.get('/notificaciones/:id', (req, res) => {
-  const {id} = req.params;
-  connection.query('SELECT * FROM notificaciones WHERE Id_notificaciones = ?',[id],(err, rows, fields) => {
-      if(err){
-        res.json(rows);
+router.get("/notificaciones/:Id", (req, res) => {
+  try {
+    const Id_notificaciones = req.params.Id
+    connection.query(`SELECT * 
+                      FROM notificaciones
+                      WHERE Id_notificaciones = ?`, [Id_notificaciones])
+  } catch (error) {
+    res.status(503).json({ mensaje: "Error en el servidor.", error: true })
+  }
+});
+
+router.post('/notificaciones', (req, res) => {
+  try {
+    const {
+      descripcion
+    } = req.body
+    const SQL = `INSERT INTO notificaciones (descripcion) 
+                       VALUES(?,?)`
+    const parametros = [descripcion]
+    connection.query(SQL, parametros, (error, results, fields) => {
+      if (error) {
+        console.log(error)
+        res.status(502).json({ mensaje: 'Error en la bd.' })
       } else {
-        console.log(err);
+        console.log(results)
+        res.status(201).json({
+          id_notificaciones: results.insertId,
+          descripcion,
+       
+        })
       }
-    });
-  });
-
-router.post('/notificaciones', (req, res)=> {
-  const {descripcion}=req.body;
-  let datanotificacion = [descripcion];
-  let newnotificacion = `INSERT INTO notificaciones (Descripcion) VALUES (?)`;
-  connection.query(newnotificacion, datanotificacion, (err, results, fields)=> {
-    if(err){
-      return console.error(err.message)
-    }
-    res.json
-  })
+    })
+  } catch (error) {
+    res.status(502).json({ mensaje: "Error en el servidor" })
+  }
 })
 
 module.exports = router

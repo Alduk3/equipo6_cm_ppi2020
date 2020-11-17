@@ -16,13 +16,13 @@ const connection = mysql.createConnection({
   database : 'bgwnlflev2g5vo80asja'
 });*/
 
-/*connection.connect((error) => {
+connection.connect((error) => {
     if(error){
       console.log(`Error en conexión a base de datos: ${error}`)
       return;
     }else{
       console.log("Conexión extablecida con el servidor de MySQL")
     }
-});*/
+});
 
 module.exports =  {connection: connection}

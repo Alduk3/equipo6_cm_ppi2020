@@ -1,86 +1,46 @@
-const { Router } = require("express");
+const {Router} = require ('express');
 const router = Router();
-const fs = require("fs");
-//var app = require('express')()
-const FileStock = fs.readFileSync("./stock.json", "utf-8")
-const JSONStock = JSON.parse(FileStock)
-
-//let FileVentas = null
-//let JSONVentas = null
-
-//const loadFile = (req) => {
-  //const FileVentas = fs.readFileSync(`${req.app.get('ABSOLUTE_PATH')}ventas.json`, 'utf-8');
-  //const JSONVentas = JSON.parse(FileVentas);
-//}
-
-
-router.get("/", (req, res) => {
-  res.send("API REST USUARIO");
-});
-
-router.get("/stock", (req, res) => {
-  //loadFile(req)
-  res.json(JSONStock);
-});
-
-router.post("/stock", (req, res) => {
-  let id = JSONStock.length + 1 
-  //loadFile(req)
-  let { cantidad } = req.body
-
-  let nuevoStock = {
-    "id_stock": id,
-    "cantidad": cantidad
-  }
-
-  JSONStock.push(nuevoStock)
-  fs.writeFileSync("./stock.json", JSON.stringify(JSONStock), "utf-8")
-  res.status(201).json(nuevoStock)
-})
+const {connection} = require('./../db/mysql_pool');
 
 router.get("/stock/:id", (req, res) => {
-  let id = req.params.id
-  //loadFile(req)
-  let stockEncontrado = JSONStock.find
-    (stock => stock.id == id)
-
-  if (stockEncontrado != undefined)
-    res.status(201).json(stockEncontrado)
-  else
-    res.status(200).json(`El stock ${id} no existe`)
-})
-
-router.put("/stock/:id", (req, res) => {
-  let id = req.params.id
-  let { cantidad } = req.body
-  //loadFile(req)
-  let ventaModificada = JSONStock.find(stock => {
-    if (stock.id == id) {
-      stock.cantidad = cantidad
-      return stock
-    }
-  })
-
-  if (stockModificado != undefined) {
-    fs.writeFileSync('./stock.json', JSON.stringify(JSONStock), 'utf-8')
-    res.status(201).json(stockModificado)
-  } else {
-    res.status(200).json(`El stock ${id} no existe`)
+  try {
+    const Id_stock = req.params.id
+    connection.query(`SELECT * 
+                      FROM stock
+                      WHERE Id_stock = ?`, [Id_stock],(error, rows)=>{
+                        if(!error){res.json(rows)}else{console.log(error)}
+                      })
+  } catch (error) {
+    res.status(503).json({ mensaje: "Error en el servidor.", error: true })
   }
-})
+});
 
-router.delete("/stock/:id", (req, res) => {
-  let id = req.params.id
-  //loadFile(req)
-  let indiceStock = JSONStock.findIndex
-    (stock => stock.id == id)
-  if (indiceStock != -1) {
-    JSONStock.splice(indiceStock, 1)
-    fs.writeFileSync('./stock.json', JSON.stringify(JSONStock), 'utf-8')
-    res.status(200).json({mensaje : `El stock ${id} fue eliminado`})
-  } else {
-    res.status(200).json(`El stock ${id} no existe`)
+router.put("/salidas/:id", (req, res) => {
+    try {
+    const id_ingresos = req.params.id
+    const {
+      cantidad,
+      valor_total
+    } = req.body
+
+    connection.query(`UPDATE stock
+                      SET cantidad = ?, valor_total = ?
+                      WHERE id_salidas = ?`, [ cantidad, valor_total, id_salidas], (error, resulset, fields) => {
+        if (error) {
+          res.status(502).json({ mensaje: "Error en motor de base de datos." })
+        } else {
+          res.status(201).json({
+            id_salidas: id_salidas,
+            cantidad: cantidad,
+            valor_total: valor_total
+          })
+        }
+      }
+    )
+
+    //   console.log(id)
+  } catch (error) {
+    res.status(502).json({ mensaje: "Error en el servidor." })
   }
-})
 
 module.exports = router;

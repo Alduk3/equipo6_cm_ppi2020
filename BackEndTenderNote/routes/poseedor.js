@@ -1,4 +1,4 @@
-const { Router } = require("express");
+/*const { Router } = require("express");
 const router = Router();
 const fs = require("fs");
 //var app = require('express')()
@@ -85,4 +85,4 @@ router.delete("/poseedor/:id", (req, res) => {
   }
 })
 
-module.exports = router;
+module.exports = router;*/

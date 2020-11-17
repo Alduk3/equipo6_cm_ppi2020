@@ -16,7 +16,8 @@ app.use("/api/", require ("./routes/ventas"))
 app.use("/api/", require ("./routes/ingresos"))
 app.use("/api/", require ("./routes/salidas"))
 app.use("/api/", require ("./routes/producto"))
-//app.use("/api/", require ("./routes/notificaciones"))
+app.use("/api/", require ("./routes/notificaciones"))
+//app.use("/api/", require ("./routes/stock"))
 
 app.get("/",(req,res)=>{
 res.send("API CRUD")
