@@ -23,7 +23,7 @@ function CrearCuenta() {
 
                 <GoogleLogin 
                     className="btn btn-blanco  mt-3 btn-lg btn-block google-login letra-titulo2 font-weight-bold"
-                    clientId="482073054770-9f7thkhmrca1k7rl8cquroceriooclm3.apps.googleusercontent.com"
+                    clientId="482073054770-hvt6tisht6ca1smsfk5pn4dscbg7bcdj.apps.googleusercontent.com"
                     buttonText="Regístrate con Google"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}

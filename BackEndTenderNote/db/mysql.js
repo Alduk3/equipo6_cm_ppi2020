@@ -1,5 +1,5 @@
 const mysql      = require('mysql');
-
+//este de abajo es la bd de pruebas
 const connection = mysql.createConnection({
   host     : 'b7reamumtd4q6aqz3uvg-mysql.services.clever-cloud.com',
   user     : 'ubfnxtxz29ig7xld',

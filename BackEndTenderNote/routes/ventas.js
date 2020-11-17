@@ -1,88 +1,96 @@
-const { Router } = require("express");
-const router = Router();
-const fs = require("fs");
-var app = require('express')()
+const {Router} = require('express')
+const router = Router()
+const {connection} = require('./../db/mysql')
+//connection.connect()
 
-//const FileVentas = fs.readFileSync("./ventas.json", "utf-8")
-//const JSONVentas = JSON.parse(FileVentas)
-
-let FileVentas = null
-let JSONVentas = null
-
-const loadFile = (req) => {
-  const FileVentas = fs.readFileSync(`${req.app.get('ABSOLUTE_PATH')}ventas.json`, 'utf-8');
-  const JSONVentas = JSON.parse(FileVentas);
-}
-
-
-router.get("/", (req, res) => {
-  res.send("API REST USUARIO");
-});
-
-router.get("/ventas", (req, res) => {
-  loadFile(req)
-  res.json(JSONVentas);
-});
-
-router.get("/ventas/:id", (req, res) => {
-  let id = req.params.id
-  loadFile(req)
-  let ventaEncontrada = JSONVentas.find
-    (venta => venta.id == id)
-
-  if (ventaEncontrada != undefined)
-    res.status(200).json(ventaEncontrada)
-  else
-    res.status(200).json(`El ID ${id} no existe`)
-})
-
-router.post("/ventas", (req, res) => {
-  let id = JSONVentas.length + 1 
-  loadFile(req)
-  let { cantidad } = req.body
-
-  let nuevaVenta = {
-    "id_ventas": id,
-    "cantidad": cantidad
-  }
-
-  JSONVentas.push(nuevaVenta)
-  fs.writeFileSync("./ventas.json", JSON.stringify(JSONVentas), "utf-8")
-  res.status(200).json(nuevaVenta)
-})
-
-
-router.put("/ventas/:id", (req, res) => {
-  let id = req.params.id
-  let { cantidad } = req.body
-  loadFile(req)
-  let ventaModificada = JSONVentas.find(venta => {
-    if (venta.id == id) {
-      venta.cantidad = cantidad
-      return venta
-    }
-  })
-
-  if (ventaModificada != undefined) {
-    fs.writeFileSync('./ventas.json', JSON.stringify(JSONVentas), 'utf-8')
-    res.status(200).json(ventaModificada)
-  } else {
-    res.status(200).json(`La venta ${id} no existe`)
+router.get('/ventas', (req, res) => {
+  try{
+    connection.query("SELECT * FROM ventas", (error, rows, fields) => {
+      if(error){
+        res.status(503).json({mensaje : "Error en el servidor.", error : true, errorDB : error})
+      }
+      res.json(rows)
+    })
+  }catch(error){
+    res.status(503).json({mensaje : "Error en el servidor.", error : true})
   }
 })
 
-router.delete("/ventas/:id", (req, res) => {
-  let id = req.params.id
-  loadFile(req)
-  let indiceVenta = JSONVentas.findIndex
-    (venta => venta.id == id)
-  if (indiceUsuario != -1) {
-    JSONVentas.splice(indiceVenta, 1)
-    fs.writeFileSync('./ventas.json', JSON.stringify(JSONVentas), 'utf-8')
-    res.status(200).json({mensaje : `La venta ${id} fue eliminado`})
-  } else {
-    res.status(200).json(`La venta ${id} no existe`)
+router.get('/ventas/:id_ventas', (req, res) => {
+  try{
+    const id = req.params.id
+    connection.query(`SELECT * 
+                      FROM ventas
+                      WHERE id_ventas = ?`, [id])
+  }catch(error){
+    res.status(503).json({mensaje : "Error en el servidor.", error : true})
   }
 })
 
-module.exports = router;
+router.put('/ventas/:id_ventas', (req, res) => {
+  try{
+    const id_ventas = req.params.id
+    const {
+      cantidad
+    } = req.body
+
+    connection.query(`UPDATE usuario
+                      SET cantidad = ? WHERE id_ventas = ?`,[cantidad, id_ventas], (error, resulset, fields) => {
+                        if(error){
+                          res.status(502).json({mensaje: "Error en motor de base de datos."})
+                        }else{
+                          res.status(201).json({
+                            id_ventas : id_ventas,
+                            cantidad : cantidad
+                          })
+                        }
+                      } 
+                    )
+
+ //   console.log(id)
+  }catch(error){
+    res.status(502).json({mensaje : "Error en el servidor."})
+  }
+})
+
+/*router.post('/ventas', (req, res) => {
+  try{
+    const {cantidad} = req.body    
+    const SQL = `INSERT INTO ventas (cantidad) VALUES(?)`
+    const parametros = {cantidad}
+    connection.query(SQL, parametros, (error, results, fields) => {
+      if(error){
+        console.log(error)
+        res.status(502).json({mensaje : 'Error ejecutando la consulta.'})
+      }else{
+        console.log(results)
+        res.status(201).json({
+                              id_ventas : results.insertId,
+                              cantidad : cantidad
+      }
+    })
+  }catch(error){
+    res.status(502).json({mensaje:"Error en el servidor"})
+  }
+})*/
+
+router.delete('/ventas/:id', (req, res) => {
+  try{
+    const {id} = req.params
+    const SQL = `DELETE FROM ventas WHERE id_ventas = ?`
+    connection.query(SQL, [id], (error, results, fields) => {
+      if(error){
+        res.status(502).json({mensaje : 'Error ejecutando la consulta'})
+      }else{
+        if(results.affectedRows > 0)
+          res.json({mensaje : "Registro eliminado"})
+        else
+          res.json({mensaje : "El registro no existe"})
+      }
+    })
+  }catch(error){
+    res.status(502).json({mensaje:"Error en el servidor"})
+  }
+})
+  
+module.exports = router

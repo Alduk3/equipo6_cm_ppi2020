@@ -113,4 +113,6 @@ router.delete('/almacenamiento/:id', (req, res) => {
 
 
 
-/*Actores de la tabla de oscar:
+/*
+
+//Actores de la tabla de oscar*/
