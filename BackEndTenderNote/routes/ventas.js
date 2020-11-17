@@ -16,17 +16,6 @@ router.get('/ventas', (req, res) => {
   }
 })
 
-/*router.get('/ventas/:id_ventas', (req, res) => {
-  try{
-    const id = req.params.id
-    connection.query(`SELECT * 
-                      FROM ventas
-                      WHERE id_ventas = ?`, [id])
-  }catch(error){
-    res.status(503).json({mensaje : "Error en el servidor.", error : true})
-  }
-})*/
-
 router.get('/ventas/:id',(req,res)=>{
   const {id} = req.params;
   connection.query(`SELECT * FROM ventas WHERE id_ventas = ?`, [id],(err, rows, fields)=>{
@@ -45,7 +34,7 @@ router.put('/ventas/:id', (req, res) => {
       cantidad
     } = req.body
 
-    connection.query(`UPDATE usuario
+    connection.query(`UPDATE ventas
                       SET cantidad = ? WHERE id_ventas = ?`,[cantidad, id_ventas], (error, resulset, fields) => {
                         if(error){
                           res.status(502).json({mensaje: "Error en motor de base de datos."})
@@ -64,9 +53,11 @@ router.put('/ventas/:id', (req, res) => {
   }
 })
 
-/*router.post('/ventas', (req, res) => {
+router.post('/ventas', (req, res) => {
   try{
-    const {cantidad} = req.body    
+    const {
+      cantidad
+    } = req.body    
     const SQL = `INSERT INTO ventas (cantidad) VALUES(?)`
     const parametros = [cantidad]
     connection.query(SQL, parametros, (error, results, fields) => {
@@ -78,12 +69,13 @@ router.put('/ventas/:id', (req, res) => {
         res.status(201).json({
                               id_ventas : results.insertId,
                               cantidad : cantidad
+                              })
                               }
     })
   }catch(error){
     res.status(502).json({mensaje:"Error en el servidor"})
   }
-})*/
+})
 
 router.delete('/ventas/:id', (req, res) => {
   try{

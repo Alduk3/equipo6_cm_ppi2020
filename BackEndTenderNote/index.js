@@ -20,7 +20,7 @@ app.use("/api/", require ("./routes/notificaciones"))
 app.use("/api/", require ("./routes/stock"))
 
 app.get("/",(req,res)=>{
-res.send("API CRUD")
+res.send("API EQUIPO 6")
 })
 
 app.set("ABSOLUTE_PATH", `${__dirname}/`)
