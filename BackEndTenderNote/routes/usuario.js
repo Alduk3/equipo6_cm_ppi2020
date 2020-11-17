@@ -30,7 +30,7 @@ router.get('/usuario', (req, res) => {
   }
 })
 
-router.get('/usuario/:id', (req, res) => {
+/*router.get('/usuario/:id', (req, res) => {
   try{
     const id_usuario = req.params.id
     connection.query(`SELECT * 
@@ -40,7 +40,18 @@ router.get('/usuario/:id', (req, res) => {
   }catch(error){
     res.status(503).json({mensaje : "Error en el servidor.", error : true})
   }
-})
+})*/
+
+router.get('/usuario/:id',(req,res)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM usuario WHERE id_usuario = ?`, [id],(err, rows, fields)=>{
+    if(!err){
+      res.json(rows[0])
+    }else{
+      console.log(err)
+    }
+  });
+});
 
 router.put('/usuario/:id', (req, res) => {
   try{
@@ -181,8 +192,13 @@ router.post('/actor', async(req,res) => {
   }
 })
 
-router.post('/actor/subir-imagen-perfil', cargador.single('imagen_perfil') , (req, res) => {
-  res.json(req.file)
+router.post('/actor/subir-imagen-perfil', 
+cargador.single('imagen_perfil') , (req, res) => {
+  if(req.file){
+    const {id_actor} = req.body
+    const response = await connection.query(UPDATE actores SET)
+    res.json(req.file)
+  }
 })
 
 

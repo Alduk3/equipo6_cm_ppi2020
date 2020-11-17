@@ -16,7 +16,7 @@ router.get('/ventas', (req, res) => {
   }
 })
 
-router.get('/ventas/:id_ventas', (req, res) => {
+/*router.get('/ventas/:id_ventas', (req, res) => {
   try{
     const id = req.params.id
     connection.query(`SELECT * 
@@ -25,9 +25,20 @@ router.get('/ventas/:id_ventas', (req, res) => {
   }catch(error){
     res.status(503).json({mensaje : "Error en el servidor.", error : true})
   }
-})
+})*/
 
-router.put('/ventas/:id_ventas', (req, res) => {
+router.get('/ventas/:id',(req,res)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM ventas WHERE id_ventas = ?`, [id],(err, rows, fields)=>{
+    if(!err){
+      res.json(rows[0])
+    }else{
+      console.log(err)
+    }
+  });
+});
+
+router.put('/ventas/:id', (req, res) => {
   try{
     const id_ventas = req.params.id
     const {
@@ -57,7 +68,7 @@ router.put('/ventas/:id_ventas', (req, res) => {
   try{
     const {cantidad} = req.body    
     const SQL = `INSERT INTO ventas (cantidad) VALUES(?)`
-    const parametros = {cantidad}
+    const parametros = [cantidad]
     connection.query(SQL, parametros, (error, results, fields) => {
       if(error){
         console.log(error)
@@ -67,7 +78,7 @@ router.put('/ventas/:id_ventas', (req, res) => {
         res.status(201).json({
                               id_ventas : results.insertId,
                               cantidad : cantidad
-      }
+                              }
     })
   }catch(error){
     res.status(502).json({mensaje:"Error en el servidor"})

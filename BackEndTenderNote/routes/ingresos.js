@@ -16,35 +16,46 @@ router.get('/ingresos', (req, res) => {
   }
 })
 
-router.get('/ingresos/:id', (req, res) => {
+/*router.get('/ingresos/:id', (req, res) => {
   try {
-    const id = req.params.id
+    const {id} = req.params.id
     connection.query(`SELECT * 
                       FROM ingresos
                       WHERE id_ingresos = ?`, [id])
   } catch (error) {
     res.status(503).json({ mensaje: "Error en el servidor.", error: true })
   }
-})
+})*/
+
+router.get('/ingresos/:id',(req,res)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM ingresos WHERE id_ingresos = ?`, [id],(err, rows, fields)=>{
+    if(!err){
+      res.json(rows[0])
+    }else{
+      console.log(err)
+    }
+  });
+});
 
 router.put('/ingresos/:id', (req, res) => {
   try {
     const id = req.params.id
     const {
       cantidad,
-      valor_unitario
+      valor_und
     } = req.body
 
     connection.query(`UPDATE ingresos
-                      SET cantidad = ?, valor_unitario = ?
-                      WHERE id_ingresos = ?`, [cantidad, valor_unitario, id], (error, resulset, fields) => {
+                      SET cantidad = ?, valor_und = ?
+                      WHERE id_ingresos = ?`, [cantidad, valor_und, id], (error, resulset, fields) => {
         if (error) {
           res.status(502).json({ mensaje: "Error en motor de base de datos." })
         } else {
           res.status(201).json({
             id: id,
             cantidad: cantidad,
-            valor_unitario: valor_unitario
+            valor_und: valor_und
           })
         }
       }
@@ -60,11 +71,10 @@ router.post('/ingresos', (req, res) => {
   try {
     const {
       cantidad,
-      valor_unitario
+      valor_und
     } = req.body
-    const SQL = `INSERT INTO ingresos (cantidad, valor_unitario) 
-                       VALUES(?,?)`
-    const parametros = [cantidad, valor_unitario]
+    const SQL = `INSERT INTO ingresos (cantidad, valor_und) VALUES(?,?)`
+    const parametros = [cantidad, valor_und]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)
@@ -73,8 +83,8 @@ router.post('/ingresos', (req, res) => {
         console.log(results)
         res.status(201).json({
           id_ingresos: results.insertId,
-          cantidad,
-          valor_unitario
+          cantidad: cantidad,
+          valor_und : valor_und
         })
       }
     })
