@@ -1,0 +1,16 @@
+.text-black{
+    color:black;
+}
+
+.botones {
+    width: 135%;
+    height: 50px;
+}
+
+body{
+    background-image: url("../FondoT.jpeg");
+}
+
+.color-blanquito {
+    background-color: white;
+}

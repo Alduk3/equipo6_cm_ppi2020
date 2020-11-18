@@ -1,0 +1,75 @@
+.fondo{
+    background:#303f9f;
+}
+.fondo-p{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("../FondoT.jpeg");
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background:#303f9f;
+
+}
+
+.letra{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: white;
+}
+.letra-b{
+    color: black;
+}
+
+.input-border {
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+  }
+
+.input-position{
+    position:center;
+    margin-left: 70px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    right: 10px;
+    left: 5px;
+}
+
+.input-dimesiones-2{
+    position:center;
+    margin-left: 50px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    right: 10px;
+}
+
+.input-dimesiones{
+    margin-left: 105px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+}
+
+.to-cori{
+    position: center;
+}
+
+.largo{
+    width: 50%;
+    height: 19%;
+}
