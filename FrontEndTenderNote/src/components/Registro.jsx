@@ -1,5 +1,5 @@
 import React from 'react'
-import User from '../images/perro2.png'
+import User from '../images/abuelo6.png'
 import BotonM from '../images/BtnAgregar.png'
 import './styles/Registro.css'
 import { Link } from "react-router-dom";

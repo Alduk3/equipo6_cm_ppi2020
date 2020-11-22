@@ -1,8 +1,7 @@
 import React from 'react'
 import FlechaA from '../images/FlechaA.png'
 import Chulo from '../images/ChuloV.png'
-import User from '../images/abuelo.png'
-import BotonM from '../images/BtnAgregar.png'
+import User from '../images/abuelo6.png'
 import { Link } from "react-router-dom";
 import './styles/Cuenta.css'
 
@@ -18,7 +17,6 @@ function cuenta() {
           <div className="container">
             <div className="img-perfil">
               <span className="img"><img src={User} alt="" /></span>                
-              <a href="#"><img src={BotonM} type="icon" alt="" /></a>
             </div>
           </div>
           <form action method="POST" id="form">
