@@ -113,9 +113,9 @@ router.post('/usuario', (req, res) => {
 
 router.delete('/usuario/:id', (req, res) => {
   try{
-    const {id} = req.params
+    const {id_usuario} = req.params
     const SQL = `DELETE FROM usuario WHERE id_usuario = ?`
-    connection.query(SQL, [id], (error, results, fields) => {
+    connection.query(SQL, [id_usuario], (error, results, fields) => {
       if(error){
         res.status(502).json({mensaje : 'Error ejecutando la consulta'})
       }else{

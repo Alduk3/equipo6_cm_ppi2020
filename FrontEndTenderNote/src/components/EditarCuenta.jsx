@@ -1,7 +1,7 @@
 import React from 'react'
 import FlechaA from '../images/FlechaA.png'
 import Lapiz from '../images/Editar.png'
-import User from '../images/User.png'
+import User from '../images/abuelo.png'
 import { Link } from "react-router-dom";
 import './styles/EditarCuenta.css'
 

@@ -3,7 +3,7 @@ import './styles/Hogar.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
 import lista from '../images/lista.png'
-import usuario from '../images/usuario.png'
+import usuario from '../images/abuelo.png'
 import borrar1 from '../images/borrar1.png'
 import borrar2 from '../images/borrar2.png'
 import borrar3 from '../images/borrar3.png'
@@ -31,13 +31,11 @@ class Hogar extends React.Component {
                         <h5 className="p-3 font-weight-bold">
                             <u>Se están acabando</u>
                         </h5>
-                        <div className="d-inline px-3 py-3">
-                            <img src={borrar1} className="border rounded shadow"/>
-                        </div>
-                        <div className="d-inline px-3 py-3">
-                            <img src={borrar2} className="border rounded shadow"/>
-                        </div>
+                        
+
+
                     </div>
+                    
                     <div className="mt-5">
                         <h5 className="p-3 font-weight-bold">
                             <u>Últimos productos agregados</u>

@@ -1,5 +1,5 @@
 import React from 'react'
-import User from '../images/User.png'
+import User from '../images/perro2.png'
 import BotonM from '../images/BtnAgregar.png'
 import './styles/Registro.css'
 import { Link } from "react-router-dom";
@@ -12,8 +12,7 @@ function Registro() {
                 <h1 className="p-3 align-self-center mx-auto letra-titulo text-justify text-center">Regístrate para continuar!</h1>
                 </div>
                 <div className="img-perfil">
-              <span className="img"><img src={User} alt="" /></span>                
-              <a href="#"><img src={BotonM} type="icon" alt="" /></a>
+              <span className="img"><img src={User} alt="" /></span>
             </div>
             </div>
             <div class="col mx-auto">

@@ -1,7 +1,7 @@
 import React from 'react'
 import FlechaA from '../images/FlechaA.png'
 import Chulo from '../images/ChuloV.png'
-import User from '../images/User.png'
+import User from '../images/abuelo.png'
 import BotonM from '../images/BtnAgregar.png'
 import { Link } from "react-router-dom";
 import './styles/Cuenta.css'
