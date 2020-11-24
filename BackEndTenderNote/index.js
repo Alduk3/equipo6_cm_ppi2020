@@ -24,8 +24,8 @@ app.get("/",(req,res)=>{
 res.send("API EQUIPO 6")
 })
 
-app.set("ABSOLUTE_PATH", `${__dirname}/`)
-app.set("port", process.env.Port || 5000)
+//app.set("ABSOLUTE_PATH", `${__dirname}/`)
+app.set("port", process.env.PORT || 8080)
 
 app.listen(app.get("port"),()=>{
 console.log("El servidor está corriendo en el puerto " + app.get("port"))
