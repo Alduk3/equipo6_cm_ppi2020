@@ -19,3 +19,13 @@
 .fondo-p{
     background-image: url("../FondoT.jpeg");
 }
+
+.barra-abajo{
+    position:fixed;
+    top: 93vh;
+}
+
+.barra-arriba{
+    position:fixed;
+    bottom: 93vh;
+}

@@ -2,6 +2,6 @@ language = "nodejs"
 # run = "cd FrontEndTenderNote && npm i"
 run = "cd FrontEndTenderNote && npm start"
 # run = "cd BackEndTenderNote && npm i"
-# run = "cd BackEndTenderNote && npm run dev"
+#run = "cd BackEndTenderNote && npm run dev"
 
 

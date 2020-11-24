@@ -5,3 +5,12 @@
 .fondo-p{
   background-image: url("../FondoT.jpeg");
 }
+
+.inventaio-barra{
+  z-index: 6;
+}
+
+.barritab{
+  position:fixed;
+  bottom: 85vh;
+}

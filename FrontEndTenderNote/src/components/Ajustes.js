@@ -9,7 +9,7 @@ class Ajustes extends React.Component {
     render(){
         return (
             <div className="col-fluid row-fluid">
-                <div className="fondo col row-fluid">
+                <div className="fondo col row-fluid barra-arriba fixed-top">
                     <div className="text-center mb-3">
                         <h1 className="text-blanco">
                             Ajustes
@@ -35,7 +35,7 @@ class Ajustes extends React.Component {
                         </button>
                     </div>
                 </div>
-                <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom">
+                <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom barra-abajo">
                     <div className="d-inline-block p-2 px-4">
                         <Link to="/hogar">
                         <img src={hogar} className="img-fluid tamano-img mx-auto" />

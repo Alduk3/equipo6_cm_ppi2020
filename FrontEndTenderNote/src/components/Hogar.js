@@ -13,13 +13,13 @@ class Hogar extends React.Component {
     render(){
         return (
             <div className="col-fluid">
-                <div className="fondo col row-fluid">
+                <div className="fondo col row-fluid barra-arriba fixed-top">
                     <div className="d-inline justify-content-start">
                         <h1 className="text-blanco d-inline">
                             TenderNote
                         </h1>
                     </div>
-                    <div className="d-inline ml-5 pl-4 justify-content-end">
+                    <div className="d-inline ml-5 pl-4 justify-content-end ">
                         <Link to="/editarcuenta">
                             <img src={usuario} className="tamano-img d-inline pb-2 user-img" />
                         </Link>
@@ -32,8 +32,18 @@ class Hogar extends React.Component {
                             <u>Se están acabando</u>
                         </h5>
                         
-
-
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
+                        </div>   
                     </div>
                     
                     <div className="mt-5">
@@ -41,15 +51,34 @@ class Hogar extends React.Component {
                             <u>Últimos productos agregados</u>
                         </h5>
                         <div className="d-inline px-3 py-4">
-                            <img src={borrar3} className="border rounded shadow"/>
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
                         </div>
                         <div className="d-inline px-3 py-4">
-                            <img src={borrar1} className="border rounded shadow"/>
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
                         </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
+                        </div> 
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar3} className="border rounded shadow mb-3"/>
+                        </div>
+                        <div className="d-inline px-3 py-4">
+                            <img src={borrar1} className="border rounded shadow mb-3"/>
+                        </div> 
+                        
                     </div>
                 </div>
 
-                <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom">
+                <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom barra-abajo">
                     <div className="d-inline-block p-2 px-4">
                         <Link to="/hogar">
                         <img src={hogar} className="img-fluid tamano-img mx-auto" />
