@@ -1,20 +1,10 @@
 const mysql      = require('mysql');
-//este de abajo es la bd de pruebas
 const connection = mysql.createConnection({
-  host     : 'bzl6esb6ucotzupjuagz-mysql.services.clever-cloud.com',
-  user     : 'upvspmpazsfbrbtk',
-  password : 'ubsp0imz4MWDMhDpncqB',
-  database : 'bzl6esb6ucotzupjuagz'
+  host     : process.env.DB_Host,
+  user     : process.env.DB_User,
+  password : process.env.DB_Password,
+  database : process.env.DB_Database
 });
-
-
-//este de abajo es la base de datos de ejrson
-/*const connection = mysql.createConnection({
-  host     : 'bgwnlflev2g5vo80asja-mysql.services.clever-cloud.com',
-  user     : 'uqqm9uvyvmbyc2vs',
-  password : 'AKLMiuj7auE5aGQ1OsXh',
-  database : 'bgwnlflev2g5vo80asja'
-});*/
 
 connection.connect((error) => {
     if(error){
