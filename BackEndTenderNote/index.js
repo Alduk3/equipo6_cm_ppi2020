@@ -1,10 +1,8 @@
-require('dotenv').config();
-
 const express = require("express")
 const path = require("path")
 const morgan = require("morgan") 
 const app = express()
-
+require('dotenv').config();
 
 //Middelwares
 app.use(morgan("dev"))
@@ -27,9 +25,9 @@ res.send("API EQUIPO 6")
 })
 
 app.set("ABSOLUTE_PATH", `${__dirname}/`)
-app.set("puerto", 8080)
+app.set("port", process.env.Port || 5000)
 
-app.listen(app.get("puerto"),()=>{
-console.log("El servidor está corriendo en el puerto " + app.get("puerto"))
+app.listen(app.get("port"),()=>{
+console.log("El servidor está corriendo en el puerto " + app.get("port"))
 })
 
