@@ -16,8 +16,8 @@ res.status(502).json({mensaje:"La bd offline"})
 })
 
 router.get('/notificaciones/:id',(req,res)=>{
-  const {Id_notificaciones} = req.params;
-  connection.query(`SELECT * FROM notificaciones WHERE Id_notificaciones = ?`, [Id_notificaciones],(err, rows, fields)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM notificaciones WHERE Id_notificaciones = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -32,7 +32,7 @@ router.post('/notificaciones', (req, res) => {
       Descripcion
     } = req.body
     const SQL = `INSERT INTO notificaciones (Descripcion) VALUES(?)`
-    const parametros = [Descripcion]
+    const parametros = [{Descripcion}]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)

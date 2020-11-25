@@ -18,7 +18,7 @@ router.get('/ingresos', (req, res) => {
 
 router.get('/ingresos/:id',(req,res)=>{
   const {id} = req.params;
-  connection.query(`SELECT * FROM ingresos WHERE id_ingresos = ?`, [id],(err, rows, fields)=>{
+  connection.query(`SELECT * FROM ingresos WHERE Id_ingresos = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -72,8 +72,8 @@ router.post('/ingresos', (req, res) => {
         console.log(results)
         res.status(201).json({
           Id_ingresos: results.insertId,
-          Cantidad: cantidad,
-          Valor_und : valor_und
+          Cantidad: Cantidad,
+          Valor_und : Valor_und
         })
       }
     })
@@ -84,9 +84,9 @@ router.post('/ingresos', (req, res) => {
 
 router.delete('/ingresos/:id', (req, res) => {
   try {
-    const { Id_ingresos } = req.params
+    const { id } = req.params
     const SQL = `DELETE FROM ingresos WHERE Id_ingresos = ?`
-    connection.query(SQL, [Id_ingresos], (error, results, fields) => {
+    connection.query(SQL, [id], (error, results, fields) => {
       if (error) {
         res.status(502).json({ mensaje: 'Error ejecutando la consulta' })
       } else {

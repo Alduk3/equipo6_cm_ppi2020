@@ -16,8 +16,8 @@ router.get('/usuario', (req, res) => {
 })
 
 router.get('/usuario/:id',(req,res)=>{
-  const {Id_usuario} = req.params;
-  connection.query(`SELECT * FROM usuario WHERE Id_usuario = ?`, [Id_usuario],(err, rows, fields)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM usuario WHERE Id_usuario = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -64,7 +64,7 @@ router.post('/usuario', (req, res) => {
       Apellido,
       Correo
     } = req.body    
-    const SQL = `INSERT INTO usuario (nombre, apellido,correo) VALUES(?,?,?)`
+    const SQL = `INSERT INTO usuario (Nombre, Apellido,Correo) VALUES(?,?,?)`
     const parametros = [Nombre, Apellido, Correo]
     connection.query(SQL, parametros, (error, results, fields) => {
       if(error){
@@ -74,9 +74,9 @@ router.post('/usuario', (req, res) => {
         console.log(results)
         res.status(201).json({
                               Id_usuario : results.insertId,
-                              Nombre : nombre,
-                              Apellido : apellido,
-                              Correo : correo})
+                              Nombre : Nombre,
+                              Apellido : Apellido,
+                              Correo : Correo})
                               }
     })
   }catch(error){
@@ -86,9 +86,9 @@ router.post('/usuario', (req, res) => {
 
 router.delete('/usuario/:id', (req, res) => {
   try{
-    const {Id_usuario} = req.params
+    const {id} = req.params
     const SQL = `DELETE FROM usuario WHERE Id_usuario = ?`
-    connection.query(SQL, [Id_usuario], (error, results, fields) => {
+    connection.query(SQL, [id], (error, results, fields) => {
       if(error){
         res.status(502).json({mensaje : 'Error ejecutando la consulta'})
       }else{

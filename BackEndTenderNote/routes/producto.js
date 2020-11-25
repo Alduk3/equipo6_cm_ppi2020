@@ -106,7 +106,7 @@ router.post('/producto', (req, res) => {
 
 router.delete('/producto/:id', (req, res) => {
   try {
-    const { Id_producto } = req.params
+    const { id } = req.params
     const SQL = `DELETE FROM producto WHERE Id_producto = ?`
     connection.query(SQL, [id], (error, results, fields) => {
       if (error) {
@@ -125,8 +125,8 @@ router.delete('/producto/:id', (req, res) => {
 
 router.post('/producto/imagen-producto', cargador.single('imagen_producto'), async (req, res) => {
   if (req.file) {
-    const { Id_producto } = req.body
-    const response = await connection.query(`UPDATE producto SET img_producto = ? WHERE Id_producto = ?`, [JSON.stringify(req.file), Id_producto])
+    const { id_producto } = req.body
+    const response = await connection.query(`UPDATE producto SET Img_producto = ? WHERE Id_producto = ?`, [JSON.stringify(req.file), id_producto])
     res.json({ mensaje: "El archivo fue cargado exitosamente", archivo: { ruta: 'uploads/' + req.file.filename } })
   } else {
     res.json({ mensaje: "El archivo no se cargo" })

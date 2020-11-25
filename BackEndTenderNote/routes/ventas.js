@@ -17,8 +17,8 @@ router.get('/ventas', (req, res) => {
 })
 
 router.get('/ventas/:id',(req,res)=>{
-  const {Id_ventas} = req.params;
-  connection.query(`SELECT * FROM ventas WHERE Id_ventas = ?`, [Id_ventas],(err, rows, fields)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM ventas WHERE Id_ventas = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -59,7 +59,7 @@ router.post('/ventas', (req, res) => {
       Cantidad
     } = req.body    
     const SQL = `INSERT INTO ventas (Cantidad) VALUES(?)`
-    const parametros = [Cantidad]
+    const parametros = [{Cantidad}]
     connection.query(SQL, parametros, (error, results, fields) => {
       if(error){
         console.log(error)
@@ -79,9 +79,9 @@ router.post('/ventas', (req, res) => {
 
 router.delete('/ventas/:id', (req, res) => {
   try{
-    const {Id_ventas} = req.params
+    const {id} = req.params
     const SQL = `DELETE FROM ventas WHERE Id_ventas = ?`
-    connection.query(SQL, [Id_ventas], (error, results, fields) => {
+    connection.query(SQL, [id], (error, results, fields) => {
       if(error){
         res.status(502).json({mensaje : 'Error ejecutando la consulta'})
       }else{

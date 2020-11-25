@@ -16,8 +16,8 @@ router.get("/salidas", (req, res) => {
 });
 
 router.get('/salidas/:id',(req,res)=>{
-  const {Id_salidas} = req.params;
-  connection.query(`SELECT * FROM salidas WHERE Id_salidas = ?`, [Id_salidas],(err, rows, fields)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM salidas WHERE Id_salidas = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -29,11 +29,11 @@ router.get('/salidas/:id',(req,res)=>{
 router.post("/salidas", (req, res) => {
     try {
     const {
-      Cantidad,
-      Valor_total
+      Valor_total,
+      Cantidad
     } = req.body
-    const SQL = `INSERT INTO salidas (Cantidad, Valor_total)VALUES(?,?)`
-    const parametros = [Cantidad, Valor_total]
+    const SQL = `INSERT INTO salidas (Valor_total, Cantidad) VALUES(?,?)`
+    const parametros = [Valor_total, Cantidad]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)
@@ -42,8 +42,8 @@ router.post("/salidas", (req, res) => {
         console.log(results)
         res.status(201).json({
           Id_salidas: results.insertId,
-          Cantidad: Cantidad,
-          Valor_total : Valor_total
+          Valor_total : Valor_total,
+          Cantidad: Cantidad
         })
       }
     })
@@ -56,20 +56,20 @@ router.put("/salidas/:id", (req, res) => {
     try {
     const Id_salidas = req.params.id
     const {
-      Cantidad,
-      Valor_total
+      Valor_total,
+      Cantidad
     } = req.body
 
     connection.query(`UPDATE salidas
-                      SET Cantidad = ?, Valor_total = ?
-                      WHERE Id_salidas = ?`, [ Cantidad, Valor_total, Id_salidas], (error, resulset, fields) => {
+                      SET Valor_total = ?, Cantidad = ?
+                      WHERE Id_salidas = ?`, [ Valor_total, Cantidad, Id_salidas], (error, resulset, fields) => {
         if (error) {
           res.status(502).json({ mensaje: "Error en motor de base de datos." })
         } else {
           res.status(201).json({
             Id_salidas: Id_salidas,
-            Cantidad: Cantidad,
-            Valor_total: Valor_total
+            Valor_total: Valor_total,
+            Cantidad: Cantidad
           })
         }
       }
@@ -81,9 +81,9 @@ router.put("/salidas/:id", (req, res) => {
 
 router.delete("/salidas/:id", (req, res) => {
    try {
-    const { Id_salidas } = req.params
+    const { id } = req.params
     const SQL = `DELETE FROM salidas WHERE id_salidas = ?`
-    connection.query(SQL, [Id_salidas], (error, results, fields) => {
+    connection.query(SQL, [id], (error, results, fields) => {
       if (error) {
         res.status(502).json({ mensaje: 'Error ejecutando la consulta' })
       } else {

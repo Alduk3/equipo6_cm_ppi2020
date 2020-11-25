@@ -17,8 +17,8 @@ router.get('/stock', (req, res) => {
 })
 
 router.get('/stock/:id',(req,res)=>{
-  const {Id_stock} = req.params;
-  connection.query(`SELECT * FROM stock WHERE Id_stock = ?`, [Id_stock],(err, rows, fields)=>{
+  const {id} = req.params;
+  connection.query(`SELECT * FROM stock WHERE Id_stock = ?`, [id],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
