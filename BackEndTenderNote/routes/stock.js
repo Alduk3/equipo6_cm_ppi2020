@@ -17,8 +17,8 @@ router.get('/stock', (req, res) => {
 })
 
 router.get('/stock/:id',(req,res)=>{
-  const {id} = req.params;
-  connection.query(`SELECT * FROM stock WHERE id_stock = ?`, [id],(err, rows, fields)=>{
+  const {Id_stock} = req.params;
+  connection.query(`SELECT * FROM stock WHERE Id_stock = ?`, [Id_stock],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -29,19 +29,19 @@ router.get('/stock/:id',(req,res)=>{
 
 router.put('/stock/:id', (req, res) => {
   try{
-    const id_stock = req.params.id
+    const Id_stock = req.params.id
     const {
-      cantidad
+      Cantidad
     } = req.body
 
     connection.query(`UPDATE stock
-                      SET cantidad = ? WHERE id_stock = ?`,[cantidad, id_stock], (error, resulset, fields) => {
+                      SET Cantidad = ? WHERE Id_stock = ?`,[Cantidad, Id_stock], (error, resulset, fields) => {
                         if(error){
                           res.status(502).json({mensaje: "Error en motor de base de datos."})
                         }else{
                           res.status(201).json({
-                            id_stock : id_stock,
-                            cantidad : cantidad
+                            Id_stock : Id_stock,
+                            Cantidad : Cantidad
                           })
                         }
                       } 

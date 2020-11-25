@@ -32,7 +32,7 @@ router.get('/producto', (req, res) => {
 
 router.get('/producto/:id', (req, res) => {
   const { id } = req.params;
-  connection.query(`SELECT * FROM producto WHERE id_producto = ?`, [id], (err, rows, fields) => {
+  connection.query(`SELECT * FROM producto WHERE Id_producto = ?`, [id], (err, rows, fields) => {
     if (!err) {
       res.json(rows[0])
     } else {
@@ -43,25 +43,25 @@ router.get('/producto/:id', (req, res) => {
 
 router.put('/producto/:id', (req, res) => {
   try {
-    const id_producto = req.params.id
+    const Id_producto = req.params.id
     const {
-      nombre,
-      cantidad,
-      valor,
-      id_usuario
+      Nombre,
+      Cantidad,
+      Valor,
+      Id_usuario
     } = req.body
 
     connection.query(`UPDATE producto
-                      SET nombre = ?, cantidad = ?, valor = ?, id_usuario = ? WHERE id_producto = ?`, [nombre, cantidad, valor, id_usuario, id_producto], (error, resulset, fields) => {
+                      SET Nombre = ?, Cantidad = ?, Valor = ?, Id_usuario = ? WHERE Id_producto = ?`, [Nombre, Cantidad, Valor, Id_usuario, Id_producto], (error, resulset, fields) => {
       if (error) {
         res.status(502).json({ mensaje: "Error en motor de base de datos." })
       } else {
         res.status(201).json({
-          id_producto: id_producto,
-          nombre: nombre,
-          cantidad: cantidad,
-          valor: valor,
-          id_usuario: id_usuario
+          Id_producto: Id_producto,
+          Nombre: Nombre,
+          Cantidad: Cantidad,
+          Valor: Valor,
+          Id_usuario: Id_usuario
         })
       }
     }
@@ -76,14 +76,14 @@ router.put('/producto/:id', (req, res) => {
 router.post('/producto', (req, res) => {
   try {
     const {
-      nombre,
-      cantidad,
-      valor,
-      id_usuario
+      Nombre,
+      Cantidad,
+      Valor,
+      Id_usuario
     } = req.body
-    const SQL = `INSERT INTO producto (nombre, cantidad, valor, id_usuario) 
+    const SQL = `INSERT INTO producto (Nombre, Cantidad, Valor, Id_usuario) 
                        VALUES(?,?,?,?)`
-    const parametros = [nombre, cantidad, valor, id_usuario]
+    const parametros = [Nombre, Cantidad, Valor, Id_usuario]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)
@@ -91,11 +91,11 @@ router.post('/producto', (req, res) => {
       } else {
         console.log(results)
         res.status(201).json({
-          id_producto: results.insertId,
-          nombre: nombre,
-          cantidad: cantidad,
-          valor: valor,
-          id_usuario: id_usuario
+          Id_producto: results.insertId,
+          Nombre: Nombre,
+          Cantidad: Cantidad,
+          Valor: Valor,
+          Id_usuario: Id_usuario
         })
       }
     })
@@ -106,8 +106,8 @@ router.post('/producto', (req, res) => {
 
 router.delete('/producto/:id', (req, res) => {
   try {
-    const { id } = req.params
-    const SQL = `DELETE FROM producto WHERE id_producto = ?`
+    const { Id_producto } = req.params
+    const SQL = `DELETE FROM producto WHERE Id_producto = ?`
     connection.query(SQL, [id], (error, results, fields) => {
       if (error) {
         res.status(502).json({ mensaje: 'Error ejecutando la consulta' })
@@ -125,8 +125,8 @@ router.delete('/producto/:id', (req, res) => {
 
 router.post('/producto/imagen-producto', cargador.single('imagen_producto'), async (req, res) => {
   if (req.file) {
-    const { id_producto } = req.body
-    const response = await connection.query(`UPDATE producto SET img_producto = ? WHERE id_producto = ?`, [JSON.stringify(req.file), id_producto])
+    const { Id_producto } = req.body
+    const response = await connection.query(`UPDATE producto SET img_producto = ? WHERE Id_producto = ?`, [JSON.stringify(req.file), Id_producto])
     res.json({ mensaje: "El archivo fue cargado exitosamente", archivo: { ruta: 'uploads/' + req.file.filename } })
   } else {
     res.json({ mensaje: "El archivo no se cargo" })

@@ -16,8 +16,8 @@ res.status(502).json({mensaje:"La bd offline"})
 })
 
 router.get('/notificaciones/:id',(req,res)=>{
-  const {id} = req.params;
-  connection.query(`SELECT * FROM notificaciones WHERE id_notificaciones = ?`, [id],(err, rows, fields)=>{
+  const {Id_notificaciones} = req.params;
+  connection.query(`SELECT * FROM notificaciones WHERE Id_notificaciones = ?`, [Id_notificaciones],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -29,10 +29,10 @@ router.get('/notificaciones/:id',(req,res)=>{
 router.post('/notificaciones', (req, res) => {
   try {
     const {
-      descripcion
+      Descripcion
     } = req.body
-    const SQL = `INSERT INTO notificaciones (descripcion) VALUES(?)`
-    const parametros = [descripcion]
+    const SQL = `INSERT INTO notificaciones (Descripcion) VALUES(?)`
+    const parametros = [Descripcion]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)
@@ -40,8 +40,8 @@ router.post('/notificaciones', (req, res) => {
       } else {
         console.log(results)
         res.status(201).json({
-          id_notificaciones: results.insertId,
-          descripcion: descripcion,
+          Id_notificaciones: results.insertId,
+          Descripcion: Descripcion,
        
         })
       }

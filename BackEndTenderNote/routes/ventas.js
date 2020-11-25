@@ -17,8 +17,8 @@ router.get('/ventas', (req, res) => {
 })
 
 router.get('/ventas/:id',(req,res)=>{
-  const {id} = req.params;
-  connection.query(`SELECT * FROM ventas WHERE id_ventas = ?`, [id],(err, rows, fields)=>{
+  const {Id_ventas} = req.params;
+  connection.query(`SELECT * FROM ventas WHERE Id_ventas = ?`, [Id_ventas],(err, rows, fields)=>{
     if(!err){
       res.json(rows[0])
     }else{
@@ -29,19 +29,19 @@ router.get('/ventas/:id',(req,res)=>{
 
 router.put('/ventas/:id', (req, res) => {
   try{
-    const id_ventas = req.params.id
+    const Id_ventas = req.params.id
     const {
-      cantidad
+      Cantidad
     } = req.body
 
     connection.query(`UPDATE ventas
-                      SET cantidad = ? WHERE id_ventas = ?`,[cantidad, id_ventas], (error, resulset, fields) => {
+                      SET Cantidad = ? WHERE Id_ventas = ?`,[Cantidad, Id_ventas], (error, resulset, fields) => {
                         if(error){
                           res.status(502).json({mensaje: "Error en motor de base de datos."})
                         }else{
                           res.status(201).json({
-                            id_ventas : id_ventas,
-                            cantidad : cantidad
+                            Id_ventas : Id_ventas,
+                            Cantidad : Cantidad
                           })
                         }
                       } 
@@ -56,10 +56,10 @@ router.put('/ventas/:id', (req, res) => {
 router.post('/ventas', (req, res) => {
   try{
     const {
-      cantidad
+      Cantidad
     } = req.body    
-    const SQL = `INSERT INTO ventas (cantidad) VALUES(?)`
-    const parametros = [cantidad]
+    const SQL = `INSERT INTO ventas (Cantidad) VALUES(?)`
+    const parametros = [Cantidad]
     connection.query(SQL, parametros, (error, results, fields) => {
       if(error){
         console.log(error)
@@ -67,8 +67,8 @@ router.post('/ventas', (req, res) => {
       }else{
         console.log(results)
         res.status(201).json({
-                              id_ventas : results.insertId,
-                              cantidad : cantidad
+                              Id_ventas : results.insertId,
+                              Cantidad : Cantidad
                               })
                               }
     })
@@ -79,9 +79,9 @@ router.post('/ventas', (req, res) => {
 
 router.delete('/ventas/:id', (req, res) => {
   try{
-    const {id} = req.params
-    const SQL = `DELETE FROM ventas WHERE id_ventas = ?`
-    connection.query(SQL, [id], (error, results, fields) => {
+    const {Id_ventas} = req.params
+    const SQL = `DELETE FROM ventas WHERE Id_ventas = ?`
+    connection.query(SQL, [Id_ventas], (error, results, fields) => {
       if(error){
         res.status(502).json({mensaje : 'Error ejecutando la consulta'})
       }else{

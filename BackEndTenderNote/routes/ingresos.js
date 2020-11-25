@@ -29,22 +29,22 @@ router.get('/ingresos/:id',(req,res)=>{
 
 router.put('/ingresos/:id', (req, res) => {
   try {
-    const id = req.params.id
+    const Id_ingresos = req.params.id
     const {
-      cantidad,
-      valor_und
+      Cantidad,
+      Valor_und
     } = req.body
 
     connection.query(`UPDATE ingresos
-                      SET cantidad = ?, valor_und = ?
-                      WHERE id_ingresos = ?`, [cantidad, valor_und, id], (error, resulset, fields) => {
+                      SET Cantidad = ?, Valor_und = ?
+                      WHERE Id_ingresos = ?`, [Cantidad, Valor_und, Id_ingresos], (error, resulset, fields) => {
         if (error) {
           res.status(502).json({ mensaje: "Error en motor de base de datos." })
         } else {
           res.status(201).json({
-            id: id,
-            cantidad: cantidad,
-            valor_und: valor_und
+            Id_ingresos: Id_ingresos,
+            Cantidad: Cantidad,
+            Valor_und: Valor_und
           })
         }
       }
@@ -59,11 +59,11 @@ router.put('/ingresos/:id', (req, res) => {
 router.post('/ingresos', (req, res) => {
   try {
     const {
-      cantidad,
-      valor_und
+      Cantidad,
+      Valor_und
     } = req.body
-    const SQL = `INSERT INTO ingresos (cantidad, valor_und) VALUES(?,?)`
-    const parametros = [cantidad, valor_und]
+    const SQL = `INSERT INTO ingresos (Cantidad, Valor_und) VALUES(?,?)`
+    const parametros = [Cantidad, Valor_und]
     connection.query(SQL, parametros, (error, results, fields) => {
       if (error) {
         console.log(error)
@@ -71,9 +71,9 @@ router.post('/ingresos', (req, res) => {
       } else {
         console.log(results)
         res.status(201).json({
-          id_ingresos: results.insertId,
-          cantidad: cantidad,
-          valor_und : valor_und
+          Id_ingresos: results.insertId,
+          Cantidad: cantidad,
+          Valor_und : valor_und
         })
       }
     })
@@ -84,9 +84,9 @@ router.post('/ingresos', (req, res) => {
 
 router.delete('/ingresos/:id', (req, res) => {
   try {
-    const { id } = req.params
-    const SQL = `DELETE FROM ingresos WHERE id_ingresos = ?`
-    connection.query(SQL, [id], (error, results, fields) => {
+    const { Id_ingresos } = req.params
+    const SQL = `DELETE FROM ingresos WHERE Id_ingresos = ?`
+    connection.query(SQL, [Id_ingresos], (error, results, fields) => {
       if (error) {
         res.status(502).json({ mensaje: 'Error ejecutando la consulta' })
       } else {
