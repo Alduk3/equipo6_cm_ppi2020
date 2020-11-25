@@ -102,5 +102,4 @@ router.delete('/usuario/:id', (req, res) => {
     res.status(502).json({mensaje:"Error en el servidor"})
   }
 })
-
 module.exports = router
