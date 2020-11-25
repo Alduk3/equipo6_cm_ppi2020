@@ -15,17 +15,6 @@ router.get("/salidas", (req, res) => {
   }
 });
 
-/*router.get("/salidas/:id", (req, res) => {
-  try {
-    const id_salidas = req.params.id
-    connection.query(`SELECT * 
-                      FROM salidas
-                      WHERE id_salidas = ?`, [id_salidas])
-  } catch (error) {
-    res.status(503).json({ mensaje: "Error en el servidor.", error: true })
-  }
-});*/
-
 router.get('/salidas/:id',(req,res)=>{
   const {id} = req.params;
   connection.query(`SELECT * FROM salidas WHERE id_salidas = ?`, [id],(err, rows, fields)=>{

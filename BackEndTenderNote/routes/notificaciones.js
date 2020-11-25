@@ -15,17 +15,6 @@ res.status(502).json({mensaje:"La bd offline"})
 }
 })
 
-/*router.get("/notificaciones/:Id", (req, res) => {
-  try {
-    const Id_notificaciones = req.params.Id
-    connection.query(`SELECT * 
-                      FROM notificaciones
-                      WHERE Id_notificaciones = ?`, [Id_notificaciones])
-  } catch (error) {
-    res.status(503).json({ mensaje: "Error en el servidor.", error: true })
-  }
-});*/
-
 router.get('/notificaciones/:id',(req,res)=>{
   const {id} = req.params;
   connection.query(`SELECT * FROM notificaciones WHERE id_notificaciones = ?`, [id],(err, rows, fields)=>{

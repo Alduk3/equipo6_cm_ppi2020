@@ -30,17 +30,6 @@ router.get('/producto', (req, res) => {
   }
 })
 
-/*router.get('/producto/:id_producto', (req, res) => {
-  try{
-    const id = req.params.id
-    connection.query(`SELECT * 
-                      FROM producto
-                      WHERE producto = ?`, [id])
-  }catch(error){
-    res.status(503).json({mensaje : "Error en el servidor.", error : true})
-  }
-})*/
-
 router.get('/producto/:id', (req, res) => {
   const { id } = req.params;
   connection.query(`SELECT * FROM producto WHERE id_producto = ?`, [id], (err, rows, fields) => {
