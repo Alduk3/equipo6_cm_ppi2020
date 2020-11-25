@@ -1,0 +1,867 @@
+/* Etiquetas normales */
+
+:root {
+    --font-primary: 'Untitled Sans', Helvetica, Arial, sans-serif;
+    --font-secondary: 'Tiempos Headline', 'Times', 'Georgia', serif;
+    --font-tertiary: 'DIN', Helvetica, Arial, sans-serif;
+    --font-quaternary: 'Sohne Mono Buch', Helvetica, Arial, sans-serif;
+    --font-primary-weight-regular: 400;
+    --font-secondary-weight-light: 300;
+    --font-secondary-weight-regular: 400;
+    --font-tertiary-weight-medium: 500;
+    --font-quaternary-weight-medium: 500;
+}
+
+@font-face {
+    font-family: "Untitled Sans";
+    src: url("/fonts/untitled-sans-web-regular.woff2");
+}
+
+@font-face {
+    font-family: "Tiempos Headline";
+    src: url("/fonts//tiempos-headline-web-light.woff2");
+}
+
+@font-face {
+    font-family: "DIN";
+    src: url("/fonts/ff-din.woff2");
+}
+
+body {
+    background-color: #f2f7f7;
+}
+
+footer {
+    background-color: #f2f7f7;
+}
+
+.icon1 {
+    width: 71;
+    height: 65;
+}
+
+.panel1 {
+    background-color: #f2f7f7;
+}
+
+.icon1 {
+    margin-left: 15%;
+    margin-top: 20%;
+}
+
+.mainImage {
+    margin-left: 23%;
+}
+
+.cardFonts {
+    color: #fff;
+    font-size: 24px;
+}
+
+.cardHeader {
+    color: #fff;
+}
+
+
+/* .section2 {
+    padding-top: 3%;
+} */
+
+
+/* .cards {
+    width: 100%;
+    height: auto;
+} */
+
+.lineStyle {
+    border-color: #fff;
+    width: 50%;
+}
+
+.fowardArrow {
+    margin-top: 2%;
+    margin-left: 5%;
+    height: 5%;
+    width: 5%;
+}
+
+.bigCard {
+    background-color: #c9a3a4;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.text {
+    color: #fff;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.lineStyle2 {
+    border-color: #fff;
+    margin-right: 50%;
+    border-width: auto;
+}
+
+.BigCardfont {
+    font-size: 20px;
+}
+
+.cardFonts2 {
+    color: #fff;
+    margin-top: 20%;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.cardFonts2:hover {
+    text-decoration: none;
+    color: #fff;
+    margin-top: 20%;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.fowardArrow2 {
+    margin-top: -13%;
+    margin-left: 20%;
+    height: 5%;
+    width: 5%;
+}
+
+.footerStyle {
+    background-color: #f2f7f7;
+}
+
+.icon2 {
+    width: 71;
+    height: 65;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.footerFont {
+    color: #858585;
+    font-size: medium;
+}
+
+.headerText {
+    margin-top: 10%;
+    color: #0b2436;
+    margin-left: 5%;
+    font-family: var(--font-primary);
+    font-weight: var(--font-tertiary-weight-medium);
+}
+
+@media (max-width: 767px) {
+    .headerText {
+        color: #0b2436;
+        margin-top: 40%;
+        margin-bottom: 100%;
+        z-index: 0;
+        font-size: 16px;
+        font-family: var(--font-primary);
+        font-weight: var(--font-tertiary-weight-medium);
+    }
+}
+
+.headerText2 {
+    margin-top: 10%;
+    color: #fff;
+    margin-left: 5%;
+    font-family: var(--font-primary);
+    font-weight: var(--font-tertiary-weight-medium);
+}
+
+@media (max-width: 767px) {
+    .headerText2 {
+        color: #fff;
+        margin-top: 40%;
+        margin-bottom: 100%;
+        z-index: 0;
+        font-size: 16px;
+        font-family: var(--font-primary);
+        font-weight: var(--font-tertiary-weight-medium);
+    }
+}
+
+.footerCardText {
+    margin-top: 10%;
+    color: #fff;
+    margin-left: 5%;
+    font-family: var(--font-primary);
+    font-weight: var(--font-tertiary-weight-medium);
+}
+
+@media (max-width: 992px) {
+    .footerCardText {
+        margin-top: 10%;
+        color: #fff;
+        margin-left: 5%;
+        font-size: 16px;
+        font-family: var(--font-primary);
+        font-weight: var(--font-tertiary-weight-medium);
+    }
+}
+
+@media (max-width: 550px) {
+    .footerCardText {
+        color: #fff;
+        margin-bottom: 90%;
+        font-size: 16px;
+        font-family: var(--font-primary);
+        font-weight: var(--font-tertiary-weight-medium);
+    }
+}
+
+.headerTextCustomization {
+    margin-top: 10%;
+    font-size: 26px;
+    color: #fff;
+}
+
+.headerTextCustomization:hover {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.indexHeaderText {
+    margin-top: 10%;
+    font-size: 16px;
+    color: #0b2436;
+}
+
+.indexHeaderText:hover {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.fowardArrow3 {
+    margin-left: 0%;
+    height: 2%;
+    width: 2%;
+}
+
+.smallLink {
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.8s;
+}
+
+@media (max-width: 767px) {
+    .smallLink {
+        text-decoration: none;
+        margin-left: 0%;
+        margin-right: 4%;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+.smallLink2 {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.8s;
+}
+
+@media (max-width: 767px) {
+    .smallLink2 {
+        text-decoration: none;
+        margin-left: 0%;
+        margin-right: 4%;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+.footerLink {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #858585;
+    transition: 0.8s;
+}
+
+.footerLink:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    transition: 0.8s;
+}
+
+@media (max-width: 767px) {
+    .footerLinks {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+    }
+}
+
+.background {
+    background-image: url("/img/droneMain.png");
+    background-color: #f2f7f7;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .background {
+        background-image: url("/img/droneMain-lg.png");
+        background-color: #f2f7f7;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.background2 {
+    background-image: url("/img/app.png");
+    background-color: #c09769;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .background2 {
+        background-image: url("/img/app-lg.png");
+        background-color: #c09769;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.background3 {
+    background-image: url("/img/drone.png");
+    background-color: #a7ceef;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .background3 {
+        background-image: url("/img/drone-lg.png");
+        background-color: #a7ceef;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.background4 {
+    background-image: url("/img/project.png");
+    background-color: #acb5ac;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .background4 {
+        background-image: url("/img/project-lg.png");
+        background-color: #acb5ac;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.background5 {
+    background-image: url("/img/members.png");
+    background-color: #c9a3a4;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .background5 {
+        background-image: url("/img/members-lg.png");
+        background-color: #c9a3a4;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.footerCard {
+    background-image: url("/img/drone.png");
+    background-color: #a7ceef;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .footerCard {
+        background-image: url("/img/drone.png");
+        background-color: #a7ceef;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .footerCard {
+        background-image: url("/img/drone.png");
+        background-color: #a7ceef;
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.footerCard2 {
+    background-image: url("/img/project.png");
+    background-color: #acb5ac;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .footerCard2 {
+        background-image: url("/img/project.png");
+        background-color: #acb5ac;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .footerCard2 {
+        background-image: url("/img/project.png");
+        background-color: #acb5ac;
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.footerCard3 {
+    background-image: url("/img/members.png");
+    background-color: #c9a3a4;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+@media (max-width: 767px) {
+    .footerCard3 {
+        background-image: url("/img/members.png");
+        background-color: #c9a3a4;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .footerCard3 {
+        background-image: url("/img/members.png");
+        background-color: #c9a3a4;
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-size: contain;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.hugeCard {
+    background-image: url("/img/test3.jpg");
+    background-color: #f2f7f7;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 8%;
+}
+
+.hugeCard2 {
+    background-image: url("/img/test3.jpg");
+    background-color: #f2f7f7;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 8%;
+}
+
+.hugeCard3 {
+    background-image: url("/img/appBackground.png");
+    background-color: #f2f7f7;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 10%;
+}
+
+.paragraph {
+    color: #000;
+    width: auto;
+}
+
+.paragraph2 {
+    color: #000;
+    width: auto;
+}
+
+.collageParagraph {
+    color: #000;
+    width: auto;
+}
+
+@media (max-width: 959px) {
+    .collageParagraph {
+        color: #000;
+        width: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 959px) {
+    .paragraph {
+        color: #000;
+        width: auto;
+    }
+}
+
+@media (max-width: 959px) {
+    .paragraph2 {
+        color: #000;
+        width: auto;
+    }
+}
+
+.membersImage {
+    height: 40%;
+    width: auto;
+    margin-right: 50%;
+    margin-top: 30%;
+}
+
+.container-fluid {
+    overflow: hidden;
+}
+
+.smallLink:hover {
+    color: #0b2436;
+    text-decoration: none;
+}
+
+.smallLink2:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.card {
+    border-radius: 0;
+    border-width: 0;
+    transition: 0.8s;
+}
+
+.card:hover {
+    opacity: 0.8;
+    border-radius: 0;
+    border-width: 0;
+    transition: 0.8s;
+}
+
+.parHeader {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-secondary-weight-light);
+}
+
+.parHeader2 {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-secondary-weight-light);
+}
+
+@media (max-width: 540px) {
+    .parHeader {
+        font-family: var(--font-secondary);
+        font-weight: var(--font-secondary-weight-light);
+        color: #000;
+        width: auto;
+        text-align: center;
+        float: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .parHeader2 {
+        font-family: var(--font-secondary);
+        font-weight: var(--font-secondary-weight-light);
+        color: #000;
+        width: auto;
+        text-align: center;
+        float: center;
+    }
+}
+
+@media (min-width: 541px) {
+    .parHeader2 {
+        font-family: var(--font-secondary);
+        font-weight: var(--font-secondary-weight-light);
+        color: #000;
+        width: auto;
+        text-align: center;
+        float: right;
+    }
+}
+
+.p {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight-regular);
+}
+
+.parText {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight-regular);
+    width: 50%;
+}
+
+.parText2 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight-regular);
+    text-align: justify;
+    text-align-last: right;
+}
+
+.parText3 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight-regular);
+    text-align: justify;
+}
+
+@media (max-width: 540px) {
+    .parText2 {
+        color: #000;
+        width: auto;
+        text-align: justify;
+        text-align-last: center;
+        float: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .parText3 {
+        color: #000;
+        width: auto;
+        text-align: justify;
+        text-align-last: center;
+        float: center;
+    }
+}
+
+.cardImages {
+    max-height: 50%;
+    width: auto;
+}
+
+@media (max-width: 767px) {
+    .cardImages {
+        max-height: 25%;
+        width: auto;
+    }
+}
+
+.button {
+    position: relative;
+}
+
+.smallLink.alingLeft {
+    font-size: 24px;
+}
+
+.navi {
+    background-color: transparent;
+}
+
+.straightLine {
+    width: 2px;
+    height: 100%;
+    opacity: 1;
+}
+
+.straightLine.small {
+    opacity: 0;
+    width: 0px;
+    height: 0%;
+}
+
+.straightLineVertical {
+    width: 100%;
+    height: 2px;
+    opacity: 1;
+}
+
+.disposableImage {
+    max-width: 100%;
+    height: auto;
+    opacity: 1;
+}
+
+.disposableImage.disposed {
+    max-width: 0%;
+    height: 0px;
+    opacity: 0;
+}
+
+.resizeCollageImage {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .resizeCollageImage {
+        max-width: 50%;
+        height: auto;
+    }
+}
+
+.animatedLink1 {
+    align-self: center;
+    width: 0%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.nav-item:hover .animatedLink1 {
+    opacity: 1;
+    transition: 0.5s;
+    width: 1%;
+}
+
+.animatedLink2 {
+    align-self: center;
+    width: 0%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.nav-item:hover .animatedLink2 {
+    opacity: 1;
+    transition: 0.5s;
+    width: 1%;
+}
+
+.animatedLink3 {
+    align-self: center;
+    width: 0%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.nav-item:hover .animatedLink3 {
+    opacity: 1;
+    transition: 0.5s;
+    width: 1%;
+}
+
+.animatedLink4 {
+    align-self: center;
+    width: 0%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.nav-item:hover .animatedLink4 {
+    opacity: 1;
+    transition: 0.5s;
+    width: 1%;
+}
+
+.animatedLink1.current {
+    align-self: center;
+    width: 1%;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.animatedLink2.current {
+    align-self: center;
+    width: 1%;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.animatedLink3.current {
+    align-self: center;
+    width: 1%;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.animatedLink4.current {
+    align-self: center;
+    width: 1%;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.animatedImage {
+    animation: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.animatedDesing {
+    animation: swing;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.colabAnimated {
+    animation: bounce;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.appMargin {
+    margin-left: 20%;
+}
+
+@media (max-width: 1100px) {
+    .appMargin {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 540px) {
+    .appMargin {
+        margin-left: 0%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

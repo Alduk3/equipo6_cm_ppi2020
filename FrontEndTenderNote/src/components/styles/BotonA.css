@@ -1,0 +1,46 @@
+.fab {
+    /* Tamaño */
+    width: 8vh;
+    height: 8vh;
+    border-radius: 4vh;
+
+    /* Posicionamiento fijo */
+    position:fixed;
+    top: 80vh;
+    
+
+    /* Color y borde */
+    background-color: #303f9f;
+    border:none;
+}
+.fab, .fab-edit, .fab-delete {
+    position: fixed;
+    left: 76vw;
+    padding: 10px;
+    z-index: 1032;
+    background-size: contain;
+}
+
+.fab-delete {
+    background-color: white;
+    top: 72vh;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 3vh;
+    border-style: groove;
+    border-color: gainsboro;
+}
+.fab-edit{
+    background-color: white;
+    top: 65vh;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 3vh;
+    border-style: groove;
+    border-color: gainsboro;
+}
+
+.tm-icono{
+  width: 24px;
+  height: 24px;
+}

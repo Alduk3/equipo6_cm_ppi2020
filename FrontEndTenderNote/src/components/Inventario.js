@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Inventario.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
@@ -8,7 +8,7 @@ import borrar2 from '../images/borrar2.png'
 import borrar3 from '../images/borrar3.png'
 import agregar from '../images/agregar.png'
 import { Link } from 'react-router-dom'
-
+import BotonA from './BotonA';
 import Product from './Productos';
 
 
@@ -17,67 +17,69 @@ const productos = [{
   "nombre": "Coca-Cola",
   "cantidad": 24,
   "precio": 1500,
-  "foto": "http://dummyimage.com/223x196.bmp/ff4444/ffffff"
+  "foto": "https://i.imgur.com/nObrOz3.png"
 }, {
   "id": 2,
-  "nombre": "Beef - Rouladin, Sliced",
+  "nombre": "pan de ajo",
   "cantidad": 12,
   "precio": 3000,
-  "foto": "http://dummyimage.com/202x106.jpg/cc0000/ffffff"
+  "foto": "https://i.imgur.com/lNo1W8I.png"
 }, {
   "id": 3,
-  "nombre": "Olives - Stuffed",
-  "cantidad": 48,
-  "precio": 1223,
-  "foto": "http://dummyimage.com/103x107.png/cc0000/ffffff"
+  "nombre": "Chocolisto",
+  "cantidad": 25,
+  "precio": 2500,
+  "foto": "https://i.imgur.com/lTfdLAs.png"
 }, {
   "id": 4,
-  "nombre": "Fish - Atlantic Salmon, Cold",
+  "nombre": "Papas",
   "cantidad": 24,
-  "precio": 8000,
-  "foto": "http://dummyimage.com/100x249.jpg/5fa2dd/ffffff"
+  "precio": 1000,
+  "foto": "https://i.imgur.com/DeE6nSW.png"
 }, {
   "id": 5,
-  "nombre": "Wine - Magnotta - Cab Franc",
+  "nombre": "Galletas saladas",
   "cantidad": 5,
   "precio": 1233,
-  "foto": "http://dummyimage.com/110x139.bmp/cc0000/ffffff"
+  "foto": "https://i.imgur.com/LPEkqke.png"
 }, {
   "id": 6,
-  "nombre": "Lobak",
-  "cantidad": 78,
-  "precio": 1233,
-  "foto": "http://dummyimage.com/143x118.jpg/5fa2dd/ffffff"
+  "nombre": "Milo",
+  "cantidad": 18,
+  "precio": 2800,
+  "foto": "https://i.imgur.com/GnOm10x.png"
 }, {
   "id": 7,
-  "nombre": "Bacardi Mojito",
-  "cantidad": 81,
-  "precio": 1233,
-  "foto": "http://dummyimage.com/169x220.png/ff4444/ffffff"
+  "nombre": "Quesito",
+  "cantidad": 11,
+  "precio": 2000,
+  "foto": "https://i.imgur.com/ReLDTNQ.png"
 }, {
   "id": 8,
-  "nombre": "Ecolab - Hobart Upr Prewash Arm",
+  "nombre": "Salchichas",
   "cantidad": 12,
-  "precio": 7444,
-  "foto": "http://dummyimage.com/100x158.png/cc0000/ffffff"
+  "precio": 3000,
+  "foto": "https://i.imgur.com/RlsfGXy.png"
 }, {
   "id": 9,
-  "nombre": "Cheese Cloth",
+  "nombre": "Doritos",
   "cantidad": 37,
-  "precio": 9000,
-  "foto": "http://dummyimage.com/153x120.jpg/5fa2dd/ffffff"
+  "precio": 1500,
+  "foto": "https://i.imgur.com/3CuHPE9.png"
 }, {
   "id": 10,
-  "nombre": "Vermouth - Sweet, Cinzano",
-  "cantidad": 44,
-  "precio": 1223,
-  "foto": "http://dummyimage.com/218x201.png/ff4444/ffffff"
+  "nombre": "Salsa de tomate",
+  "cantidad": 24,
+  "precio": 2500,
+  "foto": "https://i.imgur.com/A27OOfo.png"
 }]
 
 
-class Inventario extends React.Component {
-    render(){
+
+    function Inventario(){
+      const [mostrarBoton, setMostrarBoton] = useState(false);
         return (
+          
             <div className="col-fluid">
                 <div className="fondo col row-fluid barra-arriba inventario-barra fixed-top">
                     <div className="text-center mb-3">
@@ -94,7 +96,7 @@ class Inventario extends React.Component {
           <div style={{ maxHeight: '60vh'}}>
             {productos.map(p => (
               <Product
-                
+                onClick={() => setMostrarBoton(true)}
                 key={p.id}
                 nombre={p.nombre}
                 cantidad={p.cantidad}
@@ -131,13 +133,21 @@ class Inventario extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <div className="float-right mb-4 mr-3 margen pb-5 ">
-                    <Link>            
-                        <img src={agregar} className="img-fluid tamano-img-agregar" />
-                    </Link>
-                </div>
+                <BotonA
+            mostrar={mostrarBoton}
+            onEdit={() =>alert('Editar producto')}
+            onDelete={() => alert('Eliminar producto')}
+            close={() => setMostrarBoton(false)}
+            onClick={() => alert('Añadir producto')}
 
-                <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom barra-abajo">
+          />
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a className="dropdown-item" href="#">Action</a>
+                      <a className="dropdown-item" href="#">Another action</a>
+                      <a className="dropdown-item" href="#">Something else here</a>
+                    </div>
+
+               <div className="col-fluid fondo mx-auto row justify-content-center fixed-bottom">
                     <div className="d-inline-block p-2 px-4">
                         <Link to="/hogar">
                         <img src={hogar} className="img-fluid tamano-img mx-auto" />
@@ -155,8 +165,8 @@ class Inventario extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+
+        );
     }
-}
 
 export default Inventario
