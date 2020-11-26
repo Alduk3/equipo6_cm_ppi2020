@@ -3,6 +3,8 @@ import './styles/InicioSesion.css';
 import Title from '../components/Title';
 import Input from '../components/Input';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+
 
 const Login = () => {
 
@@ -53,7 +55,28 @@ const Login = () => {
       ifMatch(account)
     }
   }
+   /*constructor (){
+     //super()
+     axios.post('/BackEndTenderNote/routes/usuario', {
+     name: 'Pepito'
+     user: 'pepe'
+     }).then(function(response)){
+       console.log(response)
+     }
+   }*/
+//estructura de la documentación
+     /*axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });*/
 
+  
   return (
     <div className='login-container text-primary' >
       

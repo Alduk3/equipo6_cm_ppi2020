@@ -4,13 +4,13 @@ import Producto from '../images/PChocoli.png'
 import FlechaA from '../images/FlechaA.png'
 import Chulito from '../images/ChuloV.png'
 import { Link } from 'react-router-dom'
-
+import './styles/Ajustes.css'
 
 function AgregarProducto() {
     return (
 
         <div className="col-fluid fondo-p row-fluid">
-            <div className="mx-auto d-flex fondo justify-content-center mb-3 d-flex justify-content-between">
+            <div className="mx-auto d-flex fondo justify-content-center mb-3 d-flex justify-content-between ">
                 <Link to="/inventario"><img src={FlechaA} alt="" srcset="" className="img-fluid pl-2" /></Link>
                 <h3 className="text-blanco">
                     Nuevo producto
@@ -28,7 +28,6 @@ function AgregarProducto() {
                     </div>
                 </div>
 
-                
 
                 <div class="d-flex form-group mt-5">
                     <label class="col-sm-2 col-form-label font-weight-bold">Cantidad:</label>

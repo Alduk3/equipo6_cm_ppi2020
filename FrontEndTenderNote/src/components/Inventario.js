@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,  Component } from 'react'
 import './styles/Inventario.css'
 import ajuste from '../images/ajustes.png'
 import hogar from '../images/hogar.png'
@@ -10,7 +10,7 @@ import agregar from '../images/agregar.png'
 import { Link } from 'react-router-dom'
 import BotonA from './BotonA';
 import Product from './Productos';
-
+import axios from 'axios'; 
 
 const productos = [{ 
   "id": 1,
@@ -74,12 +74,11 @@ const productos = [{
   "foto": "https://i.imgur.com/A27OOfo.png"
 }]
 
+function Inventario(){
 
-
-    function Inventario(){
-      const [mostrarBoton, setMostrarBoton] = useState(false);
-        return (
-          
+  const [mostrarBoton, setMostrarBoton] = useState(false);  
+  
+        return (  
             <div className="col-fluid">
                 <div className="fondo col row-fluid barra-arriba inventario-barra fixed-top">
                     <div className="text-center mb-3">
@@ -93,7 +92,7 @@ const productos = [{
                 </div>
                 <br/>
 
-          <div style={{ maxHeight: '60vh'}}>
+        <div style={{ maxHeight: '60vh'}}>
             {productos.map(p => (
               <Product
                 onClick={() => setMostrarBoton(true)}
@@ -104,31 +103,7 @@ const productos = [{
                 foto={p.foto}
               />
             ))}
-          </div>
-
-{/*}                <div className="text-center pt-2">
-                    <div className="d-inline-block px-3 py-3">
-                      <Link to="/Inventariok">
-                        <img src={borrar1} className="border rounded shadow"/>
-                      </Link>
-                    </div>
-                    <div className="d-inline-block px-3 py-3">
-                      <Link to="/Inventariok">
-                        <img src={borrar2} className="border rounded shadow"/>
-                      </Link>
-                    </div>
-                    <div className="d-inline-block px-3 py-4">
-                      <Link to="/Inventariok">
-                        <img src={borrar3} className="border rounded shadow"/>
-                      </Link>
-                    </div>
-                    <div className="d-inline-block px-3 py-4">
-                      <Link to="/Inventariok">
-                        <img src={borrar1} className="border rounded shadow"/>
-                      </Link>
-                    </div>
-                </div>
-                */}
+        </div>
                 <br/>
                 <br/>
                 <br/>
@@ -138,9 +113,12 @@ const productos = [{
             onEdit={() =>alert('Editar producto')}
             onDelete={() => alert('Eliminar producto')}
             close={() => setMostrarBoton(false)}
-            onClick={() => alert('Añadir producto')}
+            onClick={() => alert('ir a la mamada esa gran hp')}
 
           />
+          
+
+
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a className="dropdown-item" href="#">Action</a>
                       <a className="dropdown-item" href="#">Another action</a>
@@ -168,5 +146,5 @@ const productos = [{
 
         );
     }
-
-export default Inventario
+    
+ export default Inventario
